@@ -1,3 +1,4 @@
--how to use <div class='wrapper'> in jsx (from index.html)
+-how to use  class='wrapper' class='container' class='row' to wrap react components
 -how to make icone background transparent
 -Header component submit button from search form
+- how to create file in command line ( echo > creates files impossible to save)

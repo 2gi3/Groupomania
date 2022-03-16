@@ -16,7 +16,7 @@ function Header (){
                 {/* <!--logo end--> */}
                 <div className="search-bar">
                     <form onSubmit={handleSubmit}>
-                        <input type="text" name="search" defaultValue="Search..." />
+                        <input type="text" name="my_input" defaultValue="Search..." />
                         <button type="submit"><i className="la la-search"></i></button>
                     </form>
                 </div>
