@@ -1,0 +1,3 @@
+-how to use <div class='wrapper'> in jsx (from index.html)
+-how to make icone background transparent
+-Header component submit button from search form
