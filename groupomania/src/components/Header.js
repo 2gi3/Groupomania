@@ -7,7 +7,7 @@ function Header (){
         e.preventDefault()
         alert(e.target['my_input'].value)
     }
-    return ( <header>
+    return ( 
         <div className="container">
             <div className="header-data">
                 <div className="logo">
@@ -49,7 +49,7 @@ function Header (){
                             <li>
                                 <div className="fgt-sec">
                                     <input type="radio" name="cc" id="c5" />
-                                    <label for="c5">
+                                    <label htmlFor="c5">
                                         <span></span>
                                     </label>
                                     <small>Online</small>
@@ -58,7 +58,7 @@ function Header (){
                             <li>
                                 <div className="fgt-sec">
                                     <input type="radio" name="cc" id="c6" />
-                                    <label for="c6">
+                                    <label htmlFor="c6">
                                         <span></span>
                                     </label>
                                     <small>Offline</small>
@@ -87,7 +87,7 @@ function Header (){
             </div>
             {/* <!--header-data end--> */}
         </div>
-    </header>
+    
     )
 }
 

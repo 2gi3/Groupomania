@@ -7,7 +7,7 @@ function ProfileBox(){
         <div className="main-left-sidebar no-margin">
             <div className="user-data full-width">
                 <div className="user-profile">
-                    <div className="username-dt">
+                    <div className="username-dt"> 
                         <div className="usr-pic">
                             <img src="http://via.placeholder.com/100x100" alt="" />
                         </div>

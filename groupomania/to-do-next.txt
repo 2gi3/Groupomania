@@ -1,4 +1,4 @@
--how to use  class='wrapper' class='container' class='row' to wrap react components
--how to make icone background transparent
+-LAYOUT 
 -Header component submit button from search form
-- how to create file in command line ( echo > creates files impossible to save)
+
+- transform uncontrolled form in <Header /> to controlled(if ther's time)
