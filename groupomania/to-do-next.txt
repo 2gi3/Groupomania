@@ -1,4 +1,4 @@
--LAYOUT 
--Header component submit button from search form
 
-- transform uncontrolled form in <Header /> to controlled(if ther's time)
+-Header component submit button from search form
+- create file with commandline (echo > name not able to save)
+- transform uncontrolled form in <Header /> to controlled

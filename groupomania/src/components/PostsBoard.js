@@ -7,6 +7,7 @@ import com from "../assets/images/com.png"
 
 function PostsBoard() {
     return(
+        
         <div className="col-lg-6 col-md-8 no-pd">
             <div className="main-ws-sec">
                 <div className="post-topbar">
@@ -15,8 +16,10 @@ function PostsBoard() {
                     </div>
                     <div className="post-st">
                         <ul>
-                            <li><a className="post_project" href="http://www.example.com" title="">Post a Project</a></li>
-                            <li><a className="post-jb active" href="http://www.example.com" title="">Post a Job</a></li>
+                        
+												<li><a className="post_project" href="#" title="">Post a Project</a></li>
+												<li><a className="post-jb active" href="#" title="">Post a Job</a></li>
+											
                         </ul>
                     </div>
                     {/* <!--post-st end--> */}
@@ -87,6 +90,11 @@ function PostsBoard() {
             </div>
             {/* <!--main-ws-sec end--> */}
         </div>
+        
+       
+        
+    
+
 
 
 

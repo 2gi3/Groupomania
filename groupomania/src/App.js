@@ -3,6 +3,7 @@ import Header from './components/Header';
 import PostsBoard from "./components/PostsBoard";
 import ProfileBox from './components/ProfileBox';
 import Widget from "./components/Widget";
+import PopUpbox from "./components/PopUpbox";
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
           </div>
         </div>
       </main>
+      <PopUpbox />
     </div>
   )
 }
-
 export default App
