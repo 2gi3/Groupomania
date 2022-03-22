@@ -1,4 +1,4 @@
-
+-click on link, path depends on where you are when you click
 -Header component submit button from search form
 - create file with commandline (echo > name not able to save)
 - transform uncontrolled form in <Header /> to controlled

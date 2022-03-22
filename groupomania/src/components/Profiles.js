@@ -1,7 +1,11 @@
 import '../css/style.css';
+import Header from './Header';
 
 function Profiles(){
-    return(
+    return(<div className='wrapper'>
+		<header>
+			<Header />
+		</header>
 <section className="companies-info">
 			<div className="container">
 				<div className="company-title">
@@ -214,6 +218,7 @@ function Profiles(){
 				</div>
 			</div>
 		</section>
+		</div>
     )
 }
 export default Profiles

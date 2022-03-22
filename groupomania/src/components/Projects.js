@@ -1,8 +1,22 @@
-import { Fragment } from 'react';
+
 import '../css/style.css';
+import SecondarySearchBar from './SearchBarSecondary';
+import Header from './Header';
 
 function Projects(){
-    return(<Fragment>
+    return(
+	<div className='wrapper'>
+		<div className='container-fluid'>
+			<div className='row'>			
+		<header>
+			<Header />
+		</header>
+		</div>
+		</div>
+		<div className='row mb-4'>
+		<SecondarySearchBar />
+		</div>
+		<div className='container'>
         <div className="row">
 							<div className="col-lg-3">
 								<div className="filter-secs">
@@ -489,7 +503,9 @@ function Projects(){
                                 {/* <!--right-sidebar end--> */}
 							</div>
 						</div>
-    </Fragment>
+						</div>
+		</div>				
+    
 
     )
 }

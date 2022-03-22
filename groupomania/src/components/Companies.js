@@ -1,7 +1,11 @@
 import '../css/style.css';
+import Header from './Header';
  
 function Companies(){
-    return(
+    return(<div className='wrapper'>
+		<header>
+			<Header />
+		</header>
         <section className="companies-info">
 			<div className="container">
 				<div className="company-title">
@@ -203,7 +207,7 @@ function Companies(){
                 {/* <!--process-comm end--> */}
 			</div>
 		</section>
-        // {/* <!--companies-info end--> */}
+        </div>
     )
 }
 export default Companies

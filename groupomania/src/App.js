@@ -52,9 +52,13 @@ function App() {
   </div>
           
           } />
-        <Route path='companies' element={<div><Header /> <Companies /></div>} />
+        <Route path='companies' element={ <Companies />} />
         <Route path='forum' element={<Forum />} />
-        <Route path='usreprofile' element={<UserProfile />} />
+        <Route path='profiles' element={<Profiles />} />
+          <Route path='profiles/userprofile' element={<UserProfile />} />
+          <Route path='myprofilefeed' element={<MyProfileFeed />} />
+        <Route path='jobs' element={<Jobs />} /> 
+        <Route path='messages' element={<Messages />} />
         <Route path='signin' element={<SignIn />} />
         <Route path='projects' element={<Projects />} />
         <Route path='companyprofile' element={<CompanyProfile />} />

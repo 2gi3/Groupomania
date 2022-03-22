@@ -1,8 +1,13 @@
 import { Fragment } from 'react';
 import '../css/style.css';
+import Header from './Header';
 
 function UserProfile(){
     return(<Fragment>
+		
+		<header>
+			<Header />
+		</header>
         <section className="cover-sec">
 			<img src="http://via.placeholder.com/1600x400" alt="" />
 		</section>

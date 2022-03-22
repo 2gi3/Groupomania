@@ -41,32 +41,32 @@ function Header (){
 								</ul>
 							</li>
 							<li>
-								<a href="projects.html" title="">
+								<Link to='projects'>
 									<span><img src="images/icon3.png" alt="" /></span>
 									Projects
-								</a>
+								</Link>
 							</li>
 							<li>
-								<a href="profiles.html" title="">
+								<Link to='profiles'>
 									<span><img src="images/icon4.png" alt="" /></span>
 									Profiles
-								</a>
+								</Link>
 								<ul>
-									<li><a href="user-profile.html" title="">User Profile</a></li>
-									<li><a href="my-profile-feed.html" title="">my-profile-feed</a></li>
+									<li><Link to='profiles/userprofile'>User Profile</Link></li>
+									<li><Link to='myprofilefeed'>my-profile-feed</Link></li>
 								</ul>
 							</li>
 							<li>
-								<a href="jobs.html" title="">
+								<Link to='jobs'>
 									<span><img src="images/icon5.png" alt="" /></span>
 									Jobs
-								</a>
+								</Link>
 							</li>
 							<li>
-								<a href="#" title="" class="not-box-open">
+								<Link to='messages' class="not-box-open">
 									<span><img src="images/icon6.png" alt="" /></span>
 									Messages
-								</a>
+								</Link>
 								<div class="notification-box msg">
 									<div class="nt-title">
 										<h4>Setting</h4>

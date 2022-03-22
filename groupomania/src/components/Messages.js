@@ -1,7 +1,12 @@
 import '../css/style.css';
+import Header from './Header';
 
 function Messages(){
     return(
+	<div className='wrapper'>
+		<header>
+			<Header />
+		</header>	
         <section className="messages-page">
 			<div className="container">
 				<div className="messages-sec">
@@ -274,7 +279,7 @@ function Messages(){
                 {/* <!--messages-sec end--> */}
 			</div>
 		</section>
-    //    <!--message page end-->
+    </div>
 
     )
 }
