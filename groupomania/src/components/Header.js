@@ -1,6 +1,7 @@
 import '../css/style.css'
 import logo from '../assets/images/logo.png'
 import icon1 from "../assets/images/icon1.png" 
+import { Link} from 'react-router-dom'
 
 function Header (){
     function handleSubmit(e) {
@@ -24,19 +25,19 @@ function Header (){
 					<nav>
 						<ul>
 							<li>
-								<a href="index.html" title="">
+								<Link to='/'>
 									<span><img src="images/icon1.png" alt="" /></span>
 									Home
-								</a>
+								</Link>
 							</li>
 							<li>
-								<a href="companies.html" title="">
+							<Link to='companies'>
 									<span><img src="images/icon2.png" alt="" /></span>
 									Companies
-								</a>
+								</Link>
 								<ul>
-									<li><a href="companies.html" title="">Companies</a></li>
-									<li><a href="company-profile.html" title="">Company Profile</a></li>
+									<li><Link to='companies'>Companies</Link></li>
+									<li><Link to='companyprofile'>Company Profile</Link></li>
 								</ul>
 							</li>
 							<li>

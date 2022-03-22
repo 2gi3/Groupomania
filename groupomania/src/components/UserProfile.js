@@ -28,7 +28,7 @@ function UserProfile(){
 											<ul className="flw-status">
 												<li>
 													<span>Following</span>
-													<b>34</b>
+													<b>35</b>
 												</li>
 												<li>
 													<span>Followers</span>
@@ -490,7 +490,7 @@ function UserProfile(){
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+                                                        {/* <!--gallery_pt end --> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
