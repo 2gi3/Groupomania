@@ -1,12 +1,10 @@
+import { Fragment } from 'react';
 import '../css/style.css';
-import Header from './Header';
+
 
 function Messages(){
     return(
-	<div className='wrapper'>
-		<header>
-			<Header />
-		</header>	
+	  <Fragment>
         <section className="messages-page">
 			<div className="container">
 				<div className="messages-sec">
@@ -279,7 +277,7 @@ function Messages(){
                 {/* <!--messages-sec end--> */}
 			</div>
 		</section>
-    </div>
+	  </Fragment>    
 
     )
 }

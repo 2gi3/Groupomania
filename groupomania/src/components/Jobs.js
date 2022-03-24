@@ -1,12 +1,10 @@
 import { Fragment } from 'react';
 import '../css/style.css';
-import Header from './Header';
+
 
 function Jobs(){
     return(<Fragment>
-		<header>
-			<Header />
-		</header>
+		
         <div className="search-sec">
 			<div className="container">
 				<div className="search-box">

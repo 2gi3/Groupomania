@@ -4,11 +4,7 @@ import Header from './Header';
 
 function UserProfile(){
     return(<Fragment>
-		
-		<header>
-			<Header />
-		</header>
-        <section className="cover-sec">
+	        <section className="cover-sec">
 			<img src="http://via.placeholder.com/1600x400" alt="" />
 		</section>
 

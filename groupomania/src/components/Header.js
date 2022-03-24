@@ -1,6 +1,13 @@
 import '../css/style.css'
 import logo from '../assets/images/logo.png'
 import icon1 from "../assets/images/icon1.png" 
+import icon2 from "../assets/images/icon2.png"
+import icon3 from "../assets/images/icon3.png"
+import icon4 from "../assets/images/icon4.png"
+import icon5 from "../assets/images/icon5.png"
+import icon6 from "../assets/images/icon6.png"
+import icon7 from "../assets/images/icon7.png"
+
 import { Link} from 'react-router-dom'
 
 function Header (){
@@ -9,16 +16,16 @@ function Header (){
         alert(e.target['my_input'].value)
     }
     return ( 
-        <div class="container">
-				<div class="header-data">
-					<div class="logo">
-						<a href="index.html" title=""><img src="images/logo.png" alt="" /></a>
+        <div className="container-fluid">
+				<div className="header-data">
+					<div className="logo">
+						<a href="index.html" title=""><img src={logo} alt="" /></a>
 					</div>
                     {/* <!--logo end--> */}
-					<div class="search-bar">
+					<div className="search-bar">
 						<form>
 							<input type="text" name="search" placeholder="Search..." />
-							<button type="submit"><i class="la la-search"></i></button>
+							<button type="submit"><i className="la la-search"></i></button>
 						</form>
 					</div>
                     {/* <!--search-bar end--> */}
@@ -26,182 +33,60 @@ function Header (){
 						<ul>
 							<li>
 								<Link to='/'>
-									<span><img src="images/icon1.png" alt="" /></span>
+									<span><img src={icon1} alt="" /></span>
 									Home
 								</Link>
 							</li>
+							
 							<li>
-							<Link to='companies'>
-									<span><img src="images/icon2.png" alt="" /></span>
-									Companies
-								</Link>
-								<ul>
-									<li><Link to='companies'>Companies</Link></li>
-									<li><Link to='companyprofile'>Company Profile</Link></li>
-								</ul>
-							</li>
-							<li>
-								<Link to='projects'>
-									<span><img src="images/icon3.png" alt="" /></span>
-									Projects
+								<Link to='viewprofile'>
+									<span><img src={icon3} alt="" /></span>
+									Prfile
 								</Link>
 							</li>
 							<li>
-								<Link to='profiles'>
-									<span><img src="images/icon4.png" alt="" /></span>
-									Profiles
+								<Link to='postview'>
+									<span><img src={icon4} alt="" /></span>
+									View post
 								</Link>
-								<ul>
-									<li><Link to='profiles/userprofile'>User Profile</Link></li>
-									<li><Link to='myprofilefeed'>my-profile-feed</Link></li>
-								</ul>
+								
 							</li>
 							<li>
-								<Link to='jobs'>
-									<span><img src="images/icon5.png" alt="" /></span>
-									Jobs
+								<Link to='editpost'>
+									<span><img src={icon5} alt="" /></span>
+									edit post
 								</Link>
 							</li>
-							<li>
-								<Link to='messages' class="not-box-open">
-									<span><img src="images/icon6.png" alt="" /></span>
-									Messages
-								</Link>
-								<div class="notification-box msg">
-									<div class="nt-title">
-										<h4>Setting</h4>
-										<a href="#" title="">Clear all</a>
-									</div>
-									<div class="nott-list">
-										<div class="notfication-details">
-							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img1.png" alt="" />
-							  				</div>
-							  				<div class="notification-info">
-							  					<h3><a href="messages.html" title="">Jassica William</a> </h3>
-							  					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-							  					<span>2 min ago</span>
-							  				</div>
-                                              {/* <!--notification-info --> */}
-						  				</div>
-						  				<div class="notfication-details">
-							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="" />
-							  				</div>
-							  				<div class="notification-info">
-							  					<h3><a href="messages.html" title="">Jassica William</a></h3>
-							  					<p>Lorem ipsum dolor sit amet.</p>
-							  					<span>2 min ago</span>
-							  				</div>
-                                              {/* <!--notification-info --> */}
-						  				</div>
-						  				<div class="notfication-details">
-							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img3.png" alt="" />
-							  				</div>
-							  				<div class="notification-info">
-							  					<h3><a href="messages.html" title="">Jassica William</a></h3>
-							  					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.</p>
-							  					<span>2 min ago</span>
-							  				</div>
-                                              {/* <!--notification-info --> */}
-						  				</div>
-						  				<div class="view-all-nots">
-						  					<a href="messages.html" title="">View All Messsages</a>
-						  				</div>
-									</div>
-                                    {/* <!--nott-list end--> */}
-								</div>
-                                {/* <!--notification-box end--> */}
-							</li>
-							<li>
-								<a href="#" title="" class="not-box-open">
-									<span><img src="images/icon7.png" alt="" /></span>
-									Notification
-								</a>
-								<div class="notification-box">
-									<div class="nt-title">
-										<h4>Setting</h4>
-										<a href="#" title="">Clear all</a>
-									</div>
-									<div class="nott-list">
-										<div class="notfication-details">
-							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img1.png" alt="" />
-							  				</div>
-							  				<div class="notification-info">
-							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-							  					<span>2 min ago</span>
-							  				</div>
-                                              {/* <!--notification-info --> */}
-						  				</div>
-						  				<div class="notfication-details">
-							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="" />
-							  				</div>
-							  				<div class="notification-info">
-							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-							  					<span>2 min ago</span>
-							  				</div>
-                                              {/* <!--notification-info --> */}
-						  				</div>
-						  				<div class="notfication-details">
-							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img3.png" alt="" />
-							  				</div>
-							  				<div class="notification-info">
-							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-							  					<span>2 min ago</span>
-							  				</div>
-                                              {/* <!--notification-info --> */}
-						  				</div>
-						  				<div class="notfication-details">
-							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="" />
-							  				</div>
-							  				<div class="notification-info">
-							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-							  					<span>2 min ago</span>
-							  				</div>
-                                              {/* <!--notification-info --> */}
-						  				</div>
-						  				<div class="view-all-nots">
-						  					<a href="#" title="">View All Notification</a>
-						  				</div>
-									</div>
-                                    {/* <!--nott-list end--> */}
-								</div>
-                                {/* <!--notification-box end--> */}
-							</li>
+							
 						</ul>
 					</nav>
                     {/* <!--nav end--> */}
-					<div class="menu-btn">
-						<a href="#" title=""><i class="fa fa-bars"></i></a>
+					<div className="menu-btn">
+						<a href="#" title=""><i className="fa fa-bars"></i></a>
 					</div>
                     {/* <!--menu-btn end--> */}
-					<div class="user-account">
-						<div class="user-info">
+					<div className="user-account">
+						<div className="user-info">
 							<img src="http://via.placeholder.com/30x30" alt="" />
 							<a href="#" title="">John</a>
-							<i class="la la-sort-down"></i>
+							<i className="la la-sort-down"></i>
 						</div>
-						<div class="user-account-settingss">
+						<div className="user-account-settingss">
 							<h3>Online Status</h3>
-							<ul class="on-off-status">
+							<ul className="on-off-status">
 								<li>
-									<div class="fgt-sec">
+									<div className="fgt-sec">
 										<input type="radio" name="cc" id="c5" />
-										<label for="c5">
+										<label htmlFor="c5">
 											<span></span>
 										</label>
 										<small>Online</small>
 									</div>
 								</li>
 								<li>
-									<div class="fgt-sec">
+									<div className="fgt-sec">
 										<input type="radio" name="cc" id="c6" />
-										<label for="c6">
+										<label htmlFor="c6">
 											<span></span>
 										</label>
 										<small>Offline</small>
@@ -209,7 +94,7 @@ function Header (){
 								</li>
 							</ul>
 							<h3>Custom Status</h3>
-							<div class="search_form">
+							<div className="search_form">
 								<form>
 									<input type="text" name="search" />
 									<button type="submit">Ok</button>
@@ -217,13 +102,13 @@ function Header (){
 							</div>
                             {/* <!--search_form end--> */}
 							<h3>Setting</h3>
-							<ul class="us-links">
+							<ul className="us-links">
 								<li><a href="profile-account-setting.html" title="">Account Setting</a></li>
 								<li><a href="#" title="">Privacy</a></li>
 								<li><a href="#" title="">Faqs</a></li>
 								<li><a href="#" title="">Terms & Conditions</a></li>
 							</ul>
-							<h3 class="tc"><a href="sign-in.html" title="">Logout</a></h3>
+							<h3 className="tc"><a href="sign-in.html" title="">Logout</a></h3>
 						</div>
                         {/* <!--user-account-settingss end--> */}
 					</div>

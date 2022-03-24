@@ -1,11 +1,9 @@
+import { Fragment } from 'react';
 import '../css/style.css';
-import Header from './Header';
  
 function Companies(){
-    return(<div className='wrapper'>
-		<header>
-			<Header />
-		</header>
+    return(
+		<Fragment>
         <section className="companies-info">
 			<div className="container">
 				<div className="company-title">
@@ -207,7 +205,7 @@ function Companies(){
                 {/* <!--process-comm end--> */}
 			</div>
 		</section>
-        </div>
+        </Fragment>
     )
 }
 export default Companies
