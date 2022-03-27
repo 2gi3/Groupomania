@@ -14,7 +14,7 @@ function Homepage(){
                             <ProfileBox />
                             <PostsBoard />
                             <Widget />
-                            {/* <UserProfile /> */}
+                            <UserProfile />
                         </div>
                     </div>
                 </div>

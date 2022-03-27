@@ -36,36 +36,3 @@ function App() {
 export default App
 
 
-{/* <div className="wrapper">
-<header>
-  <Header />
-</header>
-<main>
-  <div className="main-section">
-    <div className="container">
-      <div className="main-section-data">
-        <div className="row">
-          <ProfileBox />
-          <PostsBoard />
-          <Widget /> 
-          {/* <Companies /> */}
-          {/* <CompanyProfile /> */}
-          {/* <Footer /> */}
-          {/* <ForumPostView /> */}
-          {/* <Forum /> */}
-          {/* <Jobs /> */}
-          {/* <Messages /> */}
-          {/* <MyProfileFeed /> */}
-          {/* <ProfileAccountSetting /> */}
-          {/* <Profiles /> */}
-          {/* <SecondarySearchBar />
-          <Projects /> */}
-          {/* <SignIn /> */}
-//           <UserProfile />
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// </main>
-// <PopUpbox />
-// </div> */}
