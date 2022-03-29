@@ -8,14 +8,16 @@ const app = express();
 const sauceRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
 const path = require('path');
+const db = require('./config/db.config');
 // mongoose.connect('mongodb+srv://ocproject6:pr6oc@project6.lvb15.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
-mongoose.connect(process.env['KEY']) .then(() => {
-    console.log('Successfully connected to MongoDB Atlas!');
-  })
-  .catch((error) => { 
-    console.log('Unable to connect to MongoDB Atlas!');
-    console.error(error);
-  });
+// mongoose.connect(process.env['KEY']) .then(() => {
+//     console.log('Successfully connected to MongoDB Atlas!');
+//   })
+//   .catch((error) => { 
+//     console.log('Unable to connect to MongoDB Atlas!');
+//     console.error(error);
+//   });
+db.authenticate().then( () =>console.log("Data  Base Connected !")).catch((err) => console.log(err));
 
   app.use(express.json());
   app.use('/images', express.static(path.join(__dirname, 'images')));

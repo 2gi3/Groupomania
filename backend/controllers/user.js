@@ -6,7 +6,8 @@ exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10).then(
       (hash) => {
         const user = new User({
-          email: req.body.email,
+          UserName: req.body.UserName,
+          UserEmail: req.body.UserEmail,
           password: hash
         });
         user.save().then(
@@ -27,7 +28,8 @@ exports.signup = (req, res, next) => {
   };
 
   exports.login = (req, res, next) => {
-    User.findOne({ email: req.body.email }).then(
+    // User.findOne({ email: req.body.email }).then(
+      User.findOne({where: { email: req.body.email }}).then(
       (user) => {
         if (!user) {
           return res.status(401).json({
@@ -66,3 +68,26 @@ exports.signup = (req, res, next) => {
       }
     );
   }
+
+  exports.deleteUser = (req, res, next) => {
+    User.findOne({where: { id: req.params.id }}).then(
+
+      (user) => {
+        
+          user.destroy().then(
+            () => {
+              res.status(200).json({
+                message: 'Deleted!'
+              });
+            }
+          ).catch(
+            (error) => {
+              res.status(400).json({
+                error: error
+              });
+            }
+          );
+        
+      }
+    );
+  };

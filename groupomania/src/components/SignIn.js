@@ -1,6 +1,40 @@
 import '../css/style.css';
-
+import axios from 'axios'
+import React,{ useEffect, useState } from 'react';
 function SignIn(){
+	const [userName, setUserName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const signup=(e)=>{
+		e.preventDefault();
+		console.log(userName, email, password)
+		let data ={
+            UserName : userName,
+            UserEmail:email,
+            password:password,
+           
+        }
+
+		
+		axios.post("http://localhost:3000/api/auth/signup",data)
+            .then(
+                (res)=>{
+                    localStorage.setItem('token','token');
+                    console.log('success!!');
+                     
+                     //clear states
+                     setEmail('');
+                     setPassword('');
+                     
+
+                    
+         
+            })
+            .catch((err)=>{
+                            console.log(err);
+            });	
+
+	}
     return(
 <div className="sign-in-page">
 			<div className="signin-popup">
@@ -80,41 +114,28 @@ function SignIn(){
 									</div>
                                     {/* <!--signup-tab end-->	 */}
 									<div className="dff-tab current" id="tab-3">
-										<form>
+										<form onSubmit={event => signup(event)}>
 											<div className="row">
 												<div className="col-lg-12 no-pdd">
 													<div className="sn-field">
-														<input type="text" name="name" placeholder="Full Name" />
+														<input type="text" name="name" placeholder="Full Name" onChange={event => setUserName(event.target.value)} />
 														<i className="la la-user"></i>
 													</div>
 												</div>
 												<div className="col-lg-12 no-pdd">
 													<div className="sn-field">
-														<input type="text" name="country" placeholder="Country" />
+														<input type="text" name="email" placeholder="email" onChange={event => setEmail(event.target.value)}/>
 														<i className="la la-globe"></i>
 													</div>
 												</div>
+												
 												<div className="col-lg-12 no-pdd">
 													<div className="sn-field">
-														<select>
-															<option>Category</option>
-														</select>
-														<i className="la la-dropbox"></i>
-														<span><i className="fa fa-ellipsis-h"></i></span>
-													</div>
-												</div>
-												<div className="col-lg-12 no-pdd">
-													<div className="sn-field">
-														<input type="password" name="password" placeholder="Password" />
+														<input type="password" name="password" placeholder="Password" onChange={event => setPassword(event.target.value)}/>
 														<i className="la la-lock"></i>
 													</div>
 												</div>
-												<div className="col-lg-12 no-pdd">
-													<div className="sn-field">
-														<input type="password" name="repeat-password" placeholder="Repeat Password" />
-														<i className="la la-lock"></i>
-													</div>
-												</div>
+												
 												<div className="col-lg-12 no-pdd">
 													<div className="checky-sec st2">
 														<div className="fgt-sec">
@@ -137,18 +158,8 @@ function SignIn(){
 									<div className="dff-tab" id="tab-4">
 										<form>
 											<div className="row">
-												<div className="col-lg-12 no-pdd">
-													<div className="sn-field">
-														<input type="text" name="company-name" placeholder="Company Name" />
-														<i className="la la-building"></i>
-													</div>
-												</div>
-												<div className="col-lg-12 no-pdd">
-													<div className="sn-field">
-														<input type="text" name="country" placeholder="Country" />
-														<i className="la la-globe"></i>
-													</div>
-												</div>
+												
+												
 												<div className="col-lg-12 no-pdd">
 													<div className="sn-field">
 														<input type="password" name="password" placeholder="Password" />

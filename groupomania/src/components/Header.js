@@ -57,6 +57,12 @@ function Header (){
 									edit post
 								</Link>
 							</li>
+							<li>
+								<Link to='signin'>
+									<span><img src={icon5} alt="" /></span>
+									Sign in
+								</Link>
+							</li>
 							
 						</ul>
 					</nav>
