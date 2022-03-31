@@ -29,7 +29,7 @@ exports.signup = (req, res, next) => {
 
   exports.login = (req, res, next) => {
     // User.findOne({ email: req.body.email }).then(
-      User.findOne({where: { email: req.body.email }}).then(
+      User.findOne({where: { UserEmail: req.body.email }}).then(
       (user) => {
         if (!user) {
           return res.status(401).json({
@@ -44,11 +44,11 @@ exports.signup = (req, res, next) => {
               });
             }
             const token = jwt.sign(
-              { userId: user._id },
+              { userId: user.id },
               'RANDOM_TOKEN_SECRET',
               { expiresIn: '24h' });
             res.status(200).json({
-              userId: user._id,
+              userId: user.id,
               token: token
             });
           }

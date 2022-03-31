@@ -11,10 +11,8 @@ function SignIn(){
 		let data ={
             UserName : userName,
             UserEmail:email,
-            password:password,
-           
+            password:password,           
         }
-
 		
 		axios.post("http://localhost:3000/api/auth/signup",data)
             .then(
@@ -25,9 +23,33 @@ function SignIn(){
                      //clear states
                      setEmail('');
                      setPassword('');
-                     
+					 let tab2 = document.getElementById('tab-2');
+					 tab2.classList.remove('current');
+					 let tab1 = document.getElementById('tab-1');
+					 tab1.classList.add('current');                     
+         
+            })
+            .catch((err)=>{
+                            console.log(err);
+            });	
 
-                    
+	}
+
+	const logIn =(e)=>{
+		e.preventDefault();
+		console.log( email, password)
+		let data ={            
+            email:email,
+            password:password,           
+        }
+		
+		axios.post("http://localhost:3000/api/auth/login",data)
+            .then(
+                (res)=>{
+                    sessionStorage.setItem("token", res.data.token)
+                    console.log('success!!');
+                     
+                     window.location="/";                
          
             })
             .catch((err)=>{
@@ -60,18 +82,18 @@ function SignIn(){
 								<div className="sign_in_sec current" id="tab-1">
 									
 									<h3>Sign in</h3>
-									<form>
+									<form onSubmit={event => logIn(event)}>
 										<div className="row">
 											<div className="col-lg-12 no-pdd">
 												<div className="sn-field">
-													<input type="text" name="username" placeholder="Username" />
+													<input type="text" name="userEmail" placeholder="UserEmail" onChange={event => setEmail (event.target.value)} />
 													<i className="la la-user"></i>
 												</div>
                                                 {/* <!--sn-field end--> */}
 											</div>
 											<div className="col-lg-12 no-pdd">
 												<div className="sn-field">
-													<input type="password" name="password" placeholder="Password" />
+													<input type="password" name="password" placeholder="Password" onChange={event => setPassword(event.target.value)} />
 													<i className="la la-lock"></i>
 												</div>
 											</div>
@@ -103,22 +125,14 @@ function SignIn(){
                                     {/* <!--login-resources end--> */}
 								</div>
                                 {/* <!--sign_in_sec end--> */}
-								<div className="sign_in_sec" id="tab-2">
-									<div className="signup-tab">
-										<i className="fa fa-long-arrow-left"></i>
-										<h2>johndoe@example.com</h2>
-										<ul>
-											<li data-tab="tab-3" className="current"><a href="#" title="">User</a></li>
-											<li data-tab="tab-4"><a href="#" title="">Company</a></li>
-										</ul>
-									</div>
+								<div className="sign_in_sec" id="tab-2">									
                                     {/* <!--signup-tab end-->	 */}
 									<div className="dff-tab current" id="tab-3">
 										<form onSubmit={event => signup(event)}>
 											<div className="row">
 												<div className="col-lg-12 no-pdd">
 													<div className="sn-field">
-														<input type="text" name="name" placeholder="Full Name" onChange={event => setUserName(event.target.value)} />
+														<input  type="text" name="name" placeholder="Full Name" onChange={event => setUserName(event.target.value)} />
 														<i className="la la-user"></i>
 													</div>
 												</div>

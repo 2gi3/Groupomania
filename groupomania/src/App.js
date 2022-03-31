@@ -1,15 +1,24 @@
 import {BrowserRouter as Router, Routes, Route, Link,} from 'react-router-dom'
-
+import React,{ useEffect, useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SignIn from './components/SignIn';
 import PageNotFound from './components/PageNotFound';
-import Homepage from './components/Homepage';
+import HomePage from './components/Homepage';
 import PostView from './components/PostView'
 import EditPost from './components/EditPost';
 import ViewProfile from './components/ViewProfile';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect( () =>{
+
+    if(sessionStorage.getItem('token')){
+      setIsAuthenticated(true)
+    }
+
+   },[])
   return (
     <Router>
       <div className='wrapper'>
@@ -17,11 +26,11 @@ function App() {
 				<div className='row'>
 					<header>
 						<Header />
-					</header>
+					</header> 
 				</div>
 			</div>
         <Routes>
-        <Route path='/' element={ <Homepage />} />       
+        <Route path='/' element={ <HomePage />} />       
         <Route path='signin' element={<SignIn />} />
         <Route path='postview' element={<PostView />} />
         <Route path='editpost' element={<EditPost />} />
