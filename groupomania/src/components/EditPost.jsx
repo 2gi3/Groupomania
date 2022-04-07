@@ -1,8 +1,13 @@
 import '../css/style.css';
 import {Fragment} from 'react';
 import PopUpbox from './PopUpbox';
+import { Navigate} from 'react-router-dom';
 
 function EditPost(){
+	if(!sessionStorage.getItem('token') ){
+        
+        return <Navigate to={"/signin"} />;
+    }
     return(
         <Fragment>
             	<section className="forum-sec">

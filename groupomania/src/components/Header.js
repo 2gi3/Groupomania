@@ -15,6 +15,10 @@ function Header (){
         e.preventDefault()
         alert(e.target['my_input'].value)
     }
+	function logOut(){
+		console.log('fudge')
+		sessionStorage.removeItem('token');
+	}
     return ( 
         <div className="container-fluid">
 				<div className="header-data">
@@ -62,8 +66,7 @@ function Header (){
 									<span><img src={icon5} alt="" /></span>
 									Sign in
 								</Link>
-							</li>
-							
+							</li>								
 						</ul>
 					</nav>
                     {/* <!--nav end--> */}
@@ -71,6 +74,9 @@ function Header (){
 						<a href="#" title=""><i className="fa fa-bars"></i></a>
 					</div>
                     {/* <!--menu-btn end--> */}
+					<div>
+					<button onClick={logOut}>Log out</button>	
+					</div>
 					<div className="user-account">
 						<div className="user-info">
 							<img src="http://via.placeholder.com/30x30" alt="" />

@@ -1,6 +1,11 @@
 import '../css/style.css';
+import { Navigate} from 'react-router-dom';
 
 function ViewProfile(){
+	if(!sessionStorage.getItem('token') ){
+        
+        return <Navigate to={"/signin"} />;
+    }
     return(
         <section className="profile-account-setting">
 			<div className="container">

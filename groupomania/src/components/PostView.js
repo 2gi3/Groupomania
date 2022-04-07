@@ -1,7 +1,12 @@
 import '../css/style.css';
 import {Fragment} from 'react';
+import { Navigate} from 'react-router-dom';
 
 function PostView(){
+	if(!sessionStorage.getItem('token') ){
+        
+        return <Navigate to={"/signin"} />;
+    }
     return(
         <Fragment>
             	
