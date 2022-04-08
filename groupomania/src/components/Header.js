@@ -77,6 +77,9 @@ function Header (){
 					<div>
 					<button onClick={logOut}>Log out</button>	
 					</div>
+					<div>
+						<button>Delete User</button>
+					</div>
 					<div className="user-account">
 						<div className="user-info">
 							<img src="http://via.placeholder.com/30x30" alt="" />
