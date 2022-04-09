@@ -9,6 +9,7 @@ import icon6 from "../assets/images/icon6.png"
 import icon7 from "../assets/images/icon7.png"
 
 import { Link} from 'react-router-dom'
+import axios from 'axios'
 
 function Header (){
     function handleSubmit(e) {
@@ -18,6 +19,21 @@ function Header (){
 	function logOut(){
 		console.log('fudge')
 		sessionStorage.removeItem('token');
+	}
+	
+	const deleteUser=()=>{
+		// make the UserId in the uri dynamic
+		axios.delete("http://localhost:3000/api/auth/5", {
+			headers: {
+			//   Authorization: authorizationToken
+			},
+			data: {            
+				// UserName : userName,
+                // UserEmail:email,
+                // password:password,         
+			}
+		  });
+		  sessionStorage.removeItem('token');
 	}
     return ( 
         <div className="container-fluid">
@@ -78,7 +94,7 @@ function Header (){
 					<button onClick={logOut}>Log out</button>	
 					</div>
 					<div>
-						<button>Delete User</button>
+						<button onClick={deleteUser}>Delete User</button>
 					</div>
 					<div className="user-account">
 						<div className="user-info">
