@@ -17,13 +17,14 @@ function Header (){
         alert(e.target['my_input'].value)
     }
 	function logOut(){
-		console.log('fudge')
 		sessionStorage.removeItem('token');
+		sessionStorage.removeItem('UserId');
+		window.location="/";
 	}
 	
 	const deleteUser=()=>{
-		// make the UserId in the uri dynamic
-		axios.delete("http://localhost:3000/api/auth/5", {
+		const userId = sessionStorage.getItem('UserId'); 
+		axios.delete(`http://localhost:3000/api/auth/${userId}`, {
 			headers: {
 			//   Authorization: authorizationToken
 			},
@@ -33,7 +34,7 @@ function Header (){
                 // password:password,         
 			}
 		  });
-		  sessionStorage.removeItem('token');
+		 logOut();
 	}
     return ( 
         <div className="container-fluid">

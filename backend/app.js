@@ -5,7 +5,7 @@ require("dotenv").config({path: __dirname + '/.env'});
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const sauceRoutes = require('./routes/sauces');
+const postRoutes = require('./routes/posts');
 const userRoutes = require('./routes/user');
 const path = require('path');
 const db = require('./config/db.config');
@@ -29,7 +29,8 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use('/api/sauces', sauceRoutes) 
+// app.use('/api/sauces', sauceRoutes) 
 app.use('/api/auth', userRoutes);
+app.use('/api/posts', postRoutes) 
 
 module.exports = app;

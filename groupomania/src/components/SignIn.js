@@ -41,18 +41,20 @@ function SignIn(){
 		console.log( email, password)
 		let data ={            
             email:email,
-            password:password,           
+            password:password,       
         }
 		
 		axios.post("http://localhost:3000/api/auth/login",data)
             .then(
                 (res)=>{
                     sessionStorage.setItem("token", res.data.token)
+					sessionStorage.setItem("UserId", res.data.userId)
                     console.log('success!!');
                      
                      window.location="/";                
          
             })
+
             .catch((err)=>{
                             console.log(err);
             });	

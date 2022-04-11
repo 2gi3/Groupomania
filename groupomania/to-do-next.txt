@@ -1,5 +1,4 @@
--click on link, path depends on where you are when you click
--forum has different navbar
--Header component submit button from search form
+
+QUESTIONS:
+- Make navbar and footer desappear keeping them in react router
 - create file with commandline (echo > name not able to save)
-- transform uncontrolled form in <Header /> to controlled
