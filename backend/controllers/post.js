@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken'); 
 const Post = require('../models/post');
+const fs = require('fs');
 
 exports.createPost = (req, res, next) => {
    
@@ -24,6 +25,18 @@ exports.createPost = (req, res, next) => {
       });
     }
   );
+  };
 
-
+  exports.getAllPosts = (req, res, next) => {
+    Post.findAll().then(
+      (post) => {
+        res.status(200).json(post);
+      }
+    ).catch(
+      (error) => {
+        res.status(400).json({
+          error: error
+        });
+      }
+    );
   };

@@ -47,10 +47,6 @@ function PostsBoard() {
                             </div>
                         </div>
                         <div className="epi-sec">
-                            <ul className="descp">
-                                <li><img src={icon8} alt="" /><span>Epic Coder</span></li>
-                                <li><img src={icon9} alt="" /><span>India</span></li>
-                            </ul>
                             <ul className="bk-links">
                                 <li><a href="http://www.example.com" title=""><i className="la la-bookmark"></i></a></li>
                                 <li><a href="http://www.example.com" title=""><i className="la la-envelope"></i></a></li>
@@ -58,18 +54,9 @@ function PostsBoard() {
                         </div>
                         <div className="job_descp">
                             <h3>Senior Wordpress Developer</h3>
-                            <ul className="job-dt">
-                                <li><a href="http://www.example.com" title="">Full Time</a></li>
-                                <li><span>$30 / hr</span></li>
-                            </ul>
+                            
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... <a href="http://www.example.com" title="">view more</a></p>
-                            <ul className="skill-tags">
-                                <li><a href="http://www.example.com" title="">HTML</a></li>
-                                <li><a href="http://www.example.com" title="">PHP</a></li>
-                                <li><a href="http://www.example.com" title="">CSS</a></li>
-                                <li><a href="http://www.example.com" title="">Javascript</a></li>
-                                <li><a href="http://www.example.com" title="">Wordpress</a></li>
-                            </ul>
+                            
                         </div>
                         <div className="job-status-bar">
                             <ul className="like-com">

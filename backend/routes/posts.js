@@ -5,5 +5,7 @@ const postCtrl = require('../controllers/post');
 
 router.post('/', postCtrl.createPost);
 // router.delete('/:id', userCtrl.deletePost);
+// router.get('/', auth, postCtrl.getAllPosts);
+router.get('/', postCtrl.getAllPosts);
 
 module.exports = router;

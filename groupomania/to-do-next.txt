@@ -1,4 +1,20 @@
+To do:
+-env key
+-add multimedia to post (optional)
+-identify unread posts  
+-read, update and delete Posts and add like and 
+
 
 QUESTIONS:
 - Make navbar and footer desappear keeping them in react router
 - create file with commandline (echo > name not able to save)
+
+----------------------------------------------------------------------------------------
+Here are the requirements made by the steering committee:                               |
+The presentation of the features must be simple;                                        |
+Account creation must be simple and possible from a mobile phone;                       |
+A user profile must include very little information for it to be quick to complete;     |
+Account deletion must be possible;                                                      |
+The tool should include an open forum where employees can publish multimedia content;
+The tool should include an open forum where employees can publish written content;
+Users should be able to easily identify unread posts written by other employees.
