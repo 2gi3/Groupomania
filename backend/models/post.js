@@ -9,9 +9,9 @@ UserName: {
 title: {
   type: DataTypes.STRING
 },
-// imageUrl: {
-//     type: DataTypes.STRING
-// }
+imageUrl: {
+    type: DataTypes.STRING
+},
 content: {
   type: DataTypes.STRING
 }

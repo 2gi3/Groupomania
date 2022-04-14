@@ -1,2 +1,3 @@
 const Sequelize = require("sequelize");
-module.exports = new Sequelize("groupomaniadb","root","Wiji1210!",{host:"localhost", dialect:"mysql"});
+require("dotenv").config({path: __dirname + '/.env'});
+module.exports = new Sequelize("groupomaniadb","root",process.env['PWD'],{host:"localhost", dialect:"mysql"});

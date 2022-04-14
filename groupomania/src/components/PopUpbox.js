@@ -1,10 +1,12 @@
 import React,{ useEffect, useState } from 'react';
+import { Link} from 'react-router-dom'
 import axios from 'axios'
 
 function PopUpbox (){
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
 	const [UserName, setUserName] = useState('');
+	const [imageUrl, setImageUrl] = useState('')
 	
 	const createPost=(e)=>{
 		e.preventDefault();
@@ -12,10 +14,29 @@ function PopUpbox (){
 		let data ={
             UserName:UserName,
 			title:title,
-            content:content                      
+            content:content,   
+			imageUrl:imageUrl                   
         }
+		let formData = new FormData
+		formData.append(
+			'imageUrl', imageUrl
+		)
 		
-		axios.post("http://localhost:3000/api/posts",data)
+		formData.append(
+			'UserName', UserName
+		)
+		
+		formData.append(
+			'title', title
+		)
+		
+		formData.append(
+			'content', content
+		)
+		
+
+		
+		axios.post("http://localhost:3000/api/posts",formData)
             .then(
                 (res)=>{
                     console.log('post created');               
@@ -32,14 +53,12 @@ function PopUpbox (){
 			<div className="post-project">
 				<h3>Create a post</h3>
 				<div className="post-project-fields">
-					<form onSubmit={event =>createPost(event)}>
+					<form method="post" encType="multipart/form-data" onSubmit={event =>createPost(event)}>
 						<div className="row">
 							<div className="col-lg-12">
 								<input type="text" name="title" placeholder="Title" onChange={event => setTitle(event.target.value)} />
 							</div>
-							{/* <div>
-								<input type="file" name="picture" />
-							</div>						 */}
+							
 							<div className="col-lg-12">
 								<textarea name="content" placeholder="content" onChange={event => setContent(event.target.value)}></textarea>
 							</div>
@@ -47,9 +66,14 @@ function PopUpbox (){
 								<textarea name="UserName" placeholder="UserName" onChange={event => setUserName(event.target.value)}></textarea>
 							</div>
 							<div className="col-lg-12">
+								<input type="file" name="imageUrl" placeholder="imageUrl" onChange={event => setImageUrl(event.target.value)}
+								accept="image/png, image/jpeg, image/jpg, image/webp">									
+								</input>
+							</div>
+							<div className="col-lg-12">
 								<ul>
-									<li><button className="active" type="submit" value="post">Postt</button></li>
-									<li><a href="http://www.example.com" title="">Cancel</a></li>
+									<li><button className="active" type="submit" value="post">Post</button></li>
+									<li><button onClick={() => window.location.reload(false)}>Cancel</button> </li>
 								</ul>
 							</div>
 						</div>

@@ -1,12 +1,18 @@
 To do:
--env key
--add multimedia to post (optional)
--identify unread posts  
--read, update and delete Posts and add like and 
+-add multimedia to post
+-identify posts that have been read already 
+-manage permissions/secure website
+
+(unnecessary)-read, update and delete Posts and add like 
 
 
 QUESTIONS:
-- Make navbar and footer desappear keeping them in react router
+- post picture to database
+- <PopUpBox /> in <HomePage /> why/how does it work?
+- Make navbar and footer desappear keeping them in react router but outside of routes <App />
+- Is there a more efficient way to cancel the <PopUpBox />?
+- sql database storage with netly and heroku
+- relations in sql database
 - create file with commandline (echo > name not able to save)
 
 ----------------------------------------------------------------------------------------

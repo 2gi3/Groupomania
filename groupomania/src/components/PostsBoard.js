@@ -18,7 +18,7 @@ function PostsBoard() {
                         <ul>
                         
 							<li><a className="post_project" href="#" title="">Post a Project</a></li> 
-						   <li><a className="post-jb active" href="#" title="">Post a Job</a></li>
+						   <li><a className="post-jb active" href="#" title="">Post a Job X</a></li>
 											
                         </ul>
                     </div>

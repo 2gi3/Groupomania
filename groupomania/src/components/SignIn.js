@@ -118,14 +118,7 @@ function SignIn(){
 											</div>
 										</div>
 									</form>
-									<div className="login-resources">
-										<h4>Login Via Social Account</h4>
-										<ul>
-											<li><a href="#" title="" className="fb"><i className="fa fa-facebook"></i>Login Via Facebook</a></li>
-											<li><a href="#" title="" className="tw"><i className="fa fa-twitter"></i>Login Via Twitter</a></li>
-										</ul>
-									</div>
-                                    {/* <!--login-resources end--> */}
+									
 								</div>
                                 {/* <!--sign_in_sec end--> */}
 								<div className="sign_in_sec" id="tab-2">									

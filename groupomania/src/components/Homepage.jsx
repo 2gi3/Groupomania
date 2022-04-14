@@ -3,6 +3,7 @@ import { Navigate} from 'react-router-dom';
 import PopUpbox from './PopUpbox';
 import ProfileBox from './ProfileBox';
 import PostsBoard from './PostsBoard';
+import PostsTest2 from './PostsTest2';
 import Widget from './Widget';
 import UserProfile from './UserProfile';
 function Homepage(){
@@ -17,9 +18,10 @@ function Homepage(){
                     <div className="main-section-data">
                         <div className="row">
                             <ProfileBox />
-                            <PostsBoard />
+                            <PostsTest2 />
+                            {/* <PostsBoard /> */}
                             <Widget />
-                            <UserProfile />
+                            {/* <UserProfile /> */}
                         </div>
                     </div>
                 </div>
