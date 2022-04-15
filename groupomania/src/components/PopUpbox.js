@@ -10,7 +10,7 @@ function PopUpbox (){
 	
 	const createPost=(e)=>{
 		e.preventDefault();
-		console.log(UserName, title, content)
+		console.log(imageUrl)
 		let data ={
             UserName:UserName,
 			title:title,
@@ -66,7 +66,7 @@ function PopUpbox (){
 								<textarea name="UserName" placeholder="UserName" onChange={event => setUserName(event.target.value)}></textarea>
 							</div>
 							<div className="col-lg-12">
-								<input type="file" name="imageUrl" placeholder="imageUrl" onChange={event => setImageUrl(event.target.value)}
+								<input type="file" name="imageuRL" placeholder="imageuRL" onChange={event => setImageUrl(event.target.files[0])}
 								accept="image/png, image/jpeg, image/jpg, image/webp">									
 								</input>
 							</div>

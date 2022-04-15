@@ -4,7 +4,6 @@ const Post = require('../models/post');
 const fs = require('fs');
 
 exports.createPost = (req, res, next) => {
-   
   const url = req.protocol + '://' + req.get('host');
   const post = new Post({
     UserName: req.body.UserName,
@@ -60,8 +59,7 @@ exports.createPost = (req, res, next) => {
   exports.deletePost = (req, res, next) => {
     Post.findOne({where: { id: req.params.id }}).then(
 
-      (post) => {
-        
+      (post) => {        
           post.destroy().then(
             () => {
               res.status(200).json({
