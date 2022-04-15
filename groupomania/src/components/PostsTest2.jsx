@@ -74,14 +74,13 @@ function PostsTest2() {
         <div className="col no-pd">
             <div className="main-ws-sec">
                 <div className="post-topbar">
-                    <div className="user-picy">
-                        <img src="http://via.placeholder.com/100x100" alt="" />
-                    </div>
+                  
                     <div className="post-st">
                         <ul>
                             <li><a className="post-jb active" href="#" title="">Create a Post</a></li>
                         </ul>
                     </div>
+                    <h1>Here's what's going on io our community:</h1>
                 </div>
                 {content}
             </div>

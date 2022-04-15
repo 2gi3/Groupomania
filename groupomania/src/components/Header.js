@@ -38,19 +38,11 @@ function Header (){
 	}
     return ( 
         <div className="container-fluid">
-				<div className="header-data">
+				{/* <div className="header-data">
 					<div className="logo">
 						<a href="index.html" title=""><img src={logo} width="150" alt="" /></a>
 					</div>
-                    {/* <!--logo end--> */}
-					{/* <div className="search-bar">
-						<form>
-							<input type="text" name="search" placeholder="Search..." />
-							<button type="submit"><i className="la la-search"></i></button>
-						</form>
-					</div> */}
-                    {/* <!--search-bar end--> */}
-					<nav>
+                   	<nav>
 						<ul>
 							<li>
 								<Link to='/'>
@@ -91,20 +83,50 @@ function Header (){
 							<li>
 							</li>					
 						</ul>
-					</nav>
-                    {/* <!--nav end--> */}
-					<div className="menu-btn">
-						<a href="#" title=""><i className="fa fa-bars"></i></a>
+					</nav>               
+				</div> */}
+				 <nav className="navbar navbar-expand-md navbar-dark">
+      <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+          <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+              <Link className="nav-link"  to='/'>
+				<span><img src={icon1} alt="" /></span> Home
+		     </Link>
+              </li>
+              <li className="nav-item">
+              <Link className="nav-link" to='viewprofile'>
+					<span><img src={icon3} alt="" /></span>Prfile
+			  </Link>
+              </li>
+			  <li className="nav-item">
+                  <Link className="nav-link" to='signin'>
+					<span><img src={icon5} alt="" /></span>Sign in
+				</Link>
+              </li>
+              
+          </ul>
+      </div>
+      <div className="mx-auto order-0">
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+              <span className="navbar-toggler-icon"></span>
+			  <a className="navbar-brand mx-auto" href="#">Nav</a>
+          </button>
+      </div>
+	  <div className="logo">
+						<a href="index.html" title=""><img src={logo} width="150" alt="" /></a>
 					</div>
-                    {/* <!--menu-btn end--> */}
-					{/* <div>
-					<button onClick={logOut}>Log out</button>	
-					</div>
-					<div>
-						<button onClick={deleteUser}>Delete User</button>
-					</div> */}
-					
-				</div>
+	  
+      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+          <ul className="navbar-nav ml-auto">
+			  <li className="nav-item">
+			  <button onClick={logOut}>Log out</button>
+              </li>
+              <li className="nav-item">
+			  <button onClick={deleteUser}>Delete User</button>
+              </li>
+          </ul>
+      </div>
+  </nav>
               
 			</div>
     
