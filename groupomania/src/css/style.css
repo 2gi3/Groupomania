@@ -1789,7 +1789,8 @@ main {
 
 
 .post-popup {
-	width: 570px;
+	max-width: 570px;
+    width: 100%;
 	margin: 0 auto;
 	position: fixed;
 	top: 50%;
