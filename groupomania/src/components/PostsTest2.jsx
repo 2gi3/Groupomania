@@ -24,7 +24,7 @@ function PostsTest2() {
 
     const content = posts.map((data, index) => {
         return (
-            <div className="posts-section" key={index}>
+            <div className="posts-section col col-md-6" key={index}>
                 <div className="post-bar">
                     <div className="post_topbar">
                         <div className="usy-dt">
@@ -71,7 +71,7 @@ function PostsTest2() {
         )
     })
     return (
-        <div className="col-lg-6 col-md-8 no-pd">
+        <div className="col no-pd">
             <div className="main-ws-sec">
                 <div className="post-topbar">
                     <div className="user-picy">
@@ -79,8 +79,7 @@ function PostsTest2() {
                     </div>
                     <div className="post-st">
                         <ul>
-                            <li><a className="post_project" href="#" title="">Post a Projectt</a></li>
-                            <li><a className="post-jb active" href="#" title="">Post a Job</a></li>
+                            <li><a className="post-jb active" href="#" title="">Create a Post</a></li>
                         </ul>
                     </div>
                 </div>

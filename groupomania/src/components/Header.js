@@ -1,5 +1,5 @@
 import '../css/style.css'
-import logo from '../assets/images/logo.png'
+import logo from '../assets/Groupomania_Logos/icon-left-font-monochrome-white.webp'
 import icon1 from "../assets/images/icon1.png" 
 import icon2 from "../assets/images/icon2.png"
 import icon3 from "../assets/images/icon3.png"
@@ -40,15 +40,15 @@ function Header (){
         <div className="container-fluid">
 				<div className="header-data">
 					<div className="logo">
-						<a href="index.html" title=""><img src={logo} alt="" /></a>
+						<a href="index.html" title=""><img src={logo} width="150" alt="" /></a>
 					</div>
                     {/* <!--logo end--> */}
-					<div className="search-bar">
+					{/* <div className="search-bar">
 						<form>
 							<input type="text" name="search" placeholder="Search..." />
 							<button type="submit"><i className="la la-search"></i></button>
 						</form>
-					</div>
+					</div> */}
                     {/* <!--search-bar end--> */}
 					<nav>
 						<ul>
@@ -83,7 +83,13 @@ function Header (){
 									<span><img src={icon5} alt="" /></span>
 									Sign in
 								</Link>
-							</li>								
+							</li>	
+							  <button onClick={logOut}>Log out</button>	
+							<li>
+							</li>	
+							  <button onClick={deleteUser}>Delete User</button>
+							<li>
+							</li>					
 						</ul>
 					</nav>
                     {/* <!--nav end--> */}
@@ -91,61 +97,15 @@ function Header (){
 						<a href="#" title=""><i className="fa fa-bars"></i></a>
 					</div>
                     {/* <!--menu-btn end--> */}
-					<div>
+					{/* <div>
 					<button onClick={logOut}>Log out</button>	
 					</div>
 					<div>
 						<button onClick={deleteUser}>Delete User</button>
-					</div>
-					<div className="user-account">
-						<div className="user-info">
-							<img src="http://via.placeholder.com/30x30" alt="" />
-							<a href="#" title="">John</a>
-							<i className="la la-sort-down"></i>
-						</div>
-						<div className="user-account-settingss">
-							<h3>Online Status</h3>
-							<ul className="on-off-status">
-								<li>
-									<div className="fgt-sec">
-										<input type="radio" name="cc" id="c5" />
-										<label htmlFor="c5">
-											<span></span>
-										</label>
-										<small>Online</small>
-									</div>
-								</li>
-								<li>
-									<div className="fgt-sec">
-										<input type="radio" name="cc" id="c6" />
-										<label htmlFor="c6">
-											<span></span>
-										</label>
-										<small>Offline</small>
-									</div>
-								</li>
-							</ul>
-							<h3>Custom Status</h3>
-							<div className="search_form">
-								<form>
-									<input type="text" name="search" />
-									<button type="submit">Ok</button>
-								</form>
-							</div>
-                            {/* <!--search_form end--> */}
-							<h3>Setting</h3>
-							<ul className="us-links">
-								<li><a href="profile-account-setting.html" title="">Account Setting</a></li>
-								<li><a href="#" title="">Privacy</a></li>
-								<li><a href="#" title="">Faqs</a></li>
-								<li><a href="#" title="">Terms & Conditions</a></li>
-							</ul>
-							<h3 className="tc"><a href="sign-in.html" title="">Logout</a></h3>
-						</div>
-                        {/* <!--user-account-settingss end--> */}
-					</div>
+					</div> */}
+					
 				</div>
-                {/* <!--header-data end--> */}
+              
 			</div>
     
     )

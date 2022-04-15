@@ -17,10 +17,10 @@ function Homepage(){
                 <div className="container">
                     <div className="main-section-data">
                         <div className="row">
-                            <ProfileBox />
+                            {/* <ProfileBox /> */}
                             <PostsTest2 />
                             {/* <PostsBoard /> */}
-                            <Widget />
+                            {/* <Widget /> */}
                             {/* <UserProfile /> */}
                         </div>
                     </div>

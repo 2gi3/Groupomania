@@ -63,20 +63,18 @@ function SignIn(){
     return(
 <div className="sign-in-page">
 			<div className="signin-popup">
-				<div className="signin-pop">
+				<div className="signin-pop mx-md-5">
 					<div className="row">
-						<div className="col-lg-6">
+						{/* <div className=" col-md-6">
 							<div className="cmp-info">
 								<div className="cm-logo">
 									<img src="images/cm-logo.png" alt="" />
 									<p>Workwise,  is a global freelancing platform and social networking where businesses and independent professionals connect and collaborate remotely</p>
 								</div>
-                                {/* <!--cm-logo end-->	 */}
-								<img src="images/cm-main-img.png" alt="" />			
-							</div>
-                            {/* <!--cmp-info end--> */}
-						</div>
-						<div className="col-lg-6">
+                                <img src="images/cm-main-img.png" alt="" />			
+							    </div>
+                    		</div> */}
+						<div className="col ">
 							<div className="login-sec">
 								<ul className="sign-control">
 									<li data-tab="tab-1" className="current"><a href="#" title="">Sign in</a></li>				
@@ -146,7 +144,7 @@ function SignIn(){
 													</div>
 												</div>
 												
-												<div className="col-lg-12 no-pdd">
+												{/* <div className="col-lg-12 no-pdd">
 													<div className="checky-sec st2">
 														<div className="fgt-sec">
 															<input type="checkbox" name="cc" id="c2" />
@@ -155,9 +153,8 @@ function SignIn(){
 															</label>
 															<small>Yes, I understand and agree to the workwise Terms & Conditions.</small>
 														</div>
-                                                        {/* <!--fgt-sec end--> */}
 													</div>
-												</div>
+												</div> */}
 												<div className="col-lg-12 no-pdd">
 													<button type="submit" value="submit">Get Started</button>
 												</div>
@@ -208,24 +205,7 @@ function SignIn(){
 					</div>		
 				</div>
                 {/* <!--signin-pop end--> */}
-			</div>
-            {/* <!--signin-popup end--> */}
-			<div className="footy-sec">
-				<div className="container">
-					<ul>
-						<li><a href="#" title="">Help Center</a></li>
-						<li><a href="#" title="">Privacy Policy</a></li>
-						<li><a href="#" title="">Community Guidelines</a></li>
-						<li><a href="#" title="">Cookies Policy</a></li>
-						<li><a href="#" title="">Career</a></li>
-						<li><a href="#" title="">Forum</a></li>
-						<li><a href="#" title="">Language</a></li>
-						<li><a href="#" title="">Copyright Policy</a></li>
-					</ul>
-					<p><img src="images/copy-icon.png" alt="" />Copyright 2018</p>
-				</div>
-			</div>
-            {/* <!--footy-sec end--> */}
+			</div>                      
 		</div>
     )
 }
