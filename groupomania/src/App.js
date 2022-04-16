@@ -33,7 +33,7 @@ function App() {
         <Routes>
         <Route path='/' element={ <HomePage />} />       
         <Route path='signin' element={<SignIn />} />
-        <Route path='postview' element={<PostView />} />
+        <Route path='postview/:id' element={<PostView />} />
         <Route path='editpost' element={<EditPost />} />
         <Route path='viewprofile' element={<ViewProfile />} />      
         <Route path='*' element={<PageNotFound />} />   

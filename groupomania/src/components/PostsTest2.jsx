@@ -13,7 +13,6 @@ function PostsTest2() {
 
     useEffect(() => {
         axios.get("http://localhost:3000/api/posts")
-        // axios.get("https://jsonplaceholder.typicode.com/posts")
             .then(res => {
                 console.log(res)
                 setPosts(res.data)
@@ -26,8 +25,9 @@ function PostsTest2() {
 
     const content = posts.map((data, index) => {
         return (
+        
             <div className="posts-section col col-md-6" key={index}>
-                <Link to="postview">
+                <Link to={`postview/${data.id}`} >
                 <div className="post-bar">
                     <div className="post_topbar">
                         <div className="usy-dt">

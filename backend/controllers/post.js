@@ -41,11 +41,10 @@ exports.createPost = (req, res, next) => {
   };
 
   exports.getOnePost =  (req, res, next) => {
-    Post.findOne({
-      _id: req.params.id
+    Post.findOne({where: { id: req.params.id }
     }).then(
-      (sauce) => {
-        res.status(200).json(sauce);
+      (post) => {
+        res.status(200).json(post);
       }
     ).catch(
       (error) => {
@@ -57,8 +56,8 @@ exports.createPost = (req, res, next) => {
   };
 
   exports.deletePost = (req, res, next) => {
-    Post.findOne({where: { id: req.params.id }}).then(
-
+    Post.findOne({where: { id: req.params.id }
+    }).then(
       (post) => {        
           post.destroy().then(
             () => {
