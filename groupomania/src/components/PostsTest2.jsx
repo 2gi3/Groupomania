@@ -2,12 +2,14 @@ import '../css/style.css'
 import clock from "../assets/images/clock.png"
 import likedImg from "../assets/images/liked-img.png"
 import com from "../assets/images/com.png"
+import { Link} from 'react-router-dom'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 
 function PostsTest2() {
     const [posts, setPosts] = useState([''])
     const [resourceType, setResourceType] = useState(1)
+    const userName = sessionStorage.getItem('UserName');
 
     useEffect(() => {
         axios.get("http://localhost:3000/api/posts")
@@ -25,12 +27,13 @@ function PostsTest2() {
     const content = posts.map((data, index) => {
         return (
             <div className="posts-section col col-md-6" key={index}>
+                <Link to="postview">
                 <div className="post-bar">
                     <div className="post_topbar">
                         <div className="usy-dt">
                             <img src="http://via.placeholder.com/50x50" alt="" />
                             <div className="usy-name">
-                                <h3>John {data.userId} Doe</h3>
+                                <h3>{data.UserName}</h3>
                                 <span><img src={clock} alt="clock" />3 min ago</span>
                             </div>
                         </div>
@@ -53,7 +56,7 @@ function PostsTest2() {
                     </div>
                     <div className="job_descp">
                         <h3>{data.title}</h3>
-                        <p>{data.body}</p>
+                        <p>{data.content}</p>
                     </div>
                     <div className="job-status-bar">
                         <ul className="like-com">
@@ -66,7 +69,8 @@ function PostsTest2() {
                         </ul>
                         <a href="http://www.example.com"><i className="la la-eye"></i>Views 50</a>
                     </div>
-                </div>               
+                </div>     
+                </Link>          
             </div>
         )
     })
@@ -80,7 +84,7 @@ function PostsTest2() {
                             <li><a className="post-jb active" href="#" title="">Create a Post</a></li>
                         </ul>
                     </div>
-                    <h1>Here's what's going on io our community:</h1>
+                    <h1>Hello {userName} &#x1F31D; <br/>Here's what's going on io our community:</h1>
                 </div>
                 {content}
             </div>

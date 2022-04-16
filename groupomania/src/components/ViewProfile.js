@@ -1,7 +1,24 @@
 import '../css/style.css';
 import { Navigate} from 'react-router-dom';
+import axios from 'axios'
 
 function ViewProfile(){
+	let userName = sessionStorage.getItem('UserName');
+	let userEmail = sessionStorage.getItem('UserEmail');
+
+	const deleteUser=()=>{
+		const userId = sessionStorage.getItem('UserId'); 
+		axios.delete(`http://localhost:3000/api/auth/${userId}`, {
+			headers: {
+			//   Authorization: authorizationToken
+			},
+		  });
+		  sessionStorage.removeItem('token');
+		  sessionStorage.removeItem('UserId');
+		  sessionStorage.removeItem('UserName');
+		  sessionStorage.removeItem('UserEmail');
+		  window.location="/";
+	}
 	if(!sessionStorage.getItem('token') ){
         
         return <Navigate to={"/signin"} />;
@@ -19,7 +36,7 @@ function ViewProfile(){
 										<form>
 											<div className="notbar">
 												<h4>Full name</h4>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium nulla quis erat dapibus, varius hendrerit neque suscipit. Integer in ex euismod, posuere lectus id</p>
+												<p>{userName}</p>
 												<div className="toggle-btn">
 													<a href="#" title=""><img src="images/up-btn.png" alt="" /></a>
 												</div>
@@ -27,394 +44,21 @@ function ViewProfile(){
                                             {/* <!--notbar end--> */}
 											<div className="notbar">
 												<h4> Email</h4>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium nulla quis erat dapibus, varius hendrerit neque suscipit. Integer in ex euismod, posuere lectus id</p>
+												<p>{userEmail}</p>
 												<div className="toggle-btn">
 													<a href="#" title=""><img src="images/up-btn.png" alt="" /></a>
 												</div>
-											</div>
-                                            {/* <!--notbar end--> */}
-											
-                                           
+											</div>								
 										</form>
-									</div>
-                                    {/* <!--acc-setting end--> */}
+									</div>                                   
 								</div>
-							  	<div className="tab-pane fade" id="nav-status" role="tabpanel" aria-labelledby="nav-status-tab">
-							  		<div className="acc-setting">
-							  			<h3>Profile Status</h3>
-							  			<div className="profile-bx-details">
-							  				<div className="row">
-							  					<div className="col-lg-3 col-md-6 col-sm-12">
-							  						<div className="profile-bx-info">
-							  							<div className="pro-bx">
-							  								<img src="images/pro-icon1.png" alt="" />
-							  								<div className="bx-info">
-							  									<h3>$5,145</h3>
-							  									<h5>Total Income</h5>
-							  								</div>
-                                                              {/* <!--bx-info end--> */}
-							  							</div>
-                                                          {/* <!--pro-bx end--> */}
-							  							<p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-							  						</div>
-                                                      {/* <!--profile-bx-info end--> */}
-							  					</div>
-							  					<div className="col-lg-3 col-md-6 col-sm-12">
-							  						<div className="profile-bx-info">
-							  							<div className="pro-bx">
-							  								<img src="images/pro-icon2.png" alt="" />
-							  								<div className="bx-info">
-							  									<h3>$4,745</h3>
-							  									<h5>Widthraw</h5>
-							  								</div>
-                                                              {/* <!--bx-info end--> */}
-							  							</div>
-                                                          {/* <!--pro-bx end--> */}
-							  							<p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-							  						</div>
-                                                      {/* <!--profile-bx-info end--> */}
-							  					</div>
-							  					<div className="col-lg-3 col-md-6 col-sm-12">
-							  						<div className="profile-bx-info">
-							  							<div className="pro-bx">
-							  								<img src="images/pro-icon3.png" alt="" />
-							  								<div className="bx-info">
-							  									<h3>$1,145</h3>
-							  									<h5>Sent</h5>
-							  								</div>
-                                                              {/* <!--bx-info end--> */}
-							  							</div>
-                                                          {/* <!--pro-bx end--> */}
-							  							<p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-							  						</div>
-                                                      {/* <!--profile-bx-info end--> */}
-							  					</div>
-							  					<div className="col-lg-3 col-md-6 col-sm-12">
-							  						<div className="profile-bx-info">
-							  							<div className="pro-bx">
-							  								<img src="images/pro-icon4.png" alt="" />
-							  								<div className="bx-info">
-							  									<h3>130</h3>
-							  									<h5>Total Projects</h5>
-							  								</div>
-                                                              {/* <!--bx-info end--> */}
-							  							</div>
-                                                          {/* <!--pro-bx end--> */}
-							  							<p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-							  						</div>
-                                                      {/* <!--profile-bx-info end--> */}
-							  					</div>
-							  				</div>
-							  			</div>
-                                          {/* <!--profile-bx-details end--> */}
-							  			<div className="pro-work-status">
-							  				
-                                              {/* <!-- <h4>Work Status  -  Last Months Working Status</h4> --> */}
-							  			</div>
-                                          {/* <!--pro-work-status end--> */}
-							  		</div>
-                                      {/* <!--acc-setting end--> */}
-							  	</div>
-							  	<div className="tab-pane fade" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
-							  		<div className="acc-setting">
-										<h3>Account Setting</h3>
-										<form>
-											<div className="cp-field">
-												<h5>Old Password</h5>
-												<div className="cpp-fiel">
-													<input type="text" name="old-password" placeholder="Old Password" />
-													<i className="fa fa-lock"></i>
-												</div>
-											</div>
-											<div className="cp-field">
-												<h5>New Password</h5>
-												<div className="cpp-fiel">
-													<input type="text" name="new-password" placeholder="New Password" />
-													<i className="fa fa-lock"></i>
-												</div>
-											</div>
-											<div className="cp-field">
-												<h5>Repeat Password</h5>
-												<div className="cpp-fiel">
-													<input type="text" name="repeat-password" placeholder="Repeat Password" />
-													<i className="fa fa-lock"></i>
-												</div>
-											</div>
-											<div className="cp-field">
-												<h5><a href="#" title="">Forgot Password?</a></h5>
-											</div>
-											<div className="save-stngs pd2">
-												<ul>
-													<li><button type="submit">Save Setting</button></li>
-													<li><button type="submit">Restore Setting</button></li>
-												</ul>
-											</div>
-                                            {/* <!--save-stngs end--> */}
-										</form>
-									</div>
-                                    {/* <!--acc-setting end--> */}
-							  	</div>
-							  	<div className="tab-pane fade" id="nav-notification" role="tabpanel" aria-labelledby="nav-notification-tab">
-							  		<div className="acc-setting">
-							  			<h3>Notifications</h3>
-							  			<div className="notifications-list">
-							  				<div className="notfication-details">
-								  				<div className="noty-user-img">
-								  					<img src="http://via.placeholder.com/35x35" alt="" />
-								  				</div>
-								  				<div className="notification-info">
-								  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-								  					<span>2 min ago</span>
-								  				</div>
-                                                  {/* <!--notification-info --> */}
-							  				</div>
-                                              {/* <!--notfication-details end--> */}
-							  				<div className="notfication-details">
-								  				<div className="noty-user-img">
-								  					<img src="http://via.placeholder.com/35x35" alt="" />
-								  				</div>
-								  				<div className="notification-info">
-								  					<h3><a href="#" title="">Poonam Verma</a> Bid on your Latest project.</h3>
-								  					<span>2 min ago</span>
-								  				</div>
-                                                  {/* <!--notification-info --> */}
-							  				</div>
-                                              {/* <!--notfication-details end--> */}
-							  				<div className="notfication-details">
-								  				<div className="noty-user-img">
-								  					<img src="http://via.placeholder.com/35x35" alt="" />
-								  				</div>
-								  				<div className="notification-info">
-								  					<h3><a href="#" title="">Tonney Dhman</a> Comment on your project.</h3>
-								  					<span>2 min ago</span>
-								  				</div>
-                                                  {/* <!--notification-info --> */}
-							  				</div>
-                                              {/* <!--notfication-details end--> */}
-							  				<div className="notfication-details">
-								  				<div className="noty-user-img">
-								  					<img src="http://via.placeholder.com/35x35" alt="" />
-								  				</div>
-								  				<div className="notification-info">
-								  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-								  					<span>2 min ago</span>
-								  				</div>
-                                                  {/* <!--notification-info --> */}
-							  				</div>
-                                              {/* <!--notfication-details end--> */}
-							  				<div className="notfication-details">
-								  				<div className="noty-user-img">
-								  					<img src="http://via.placeholder.com/35x35" alt="" />
-								  				</div>
-								  				<div className="notification-info">
-								  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-								  					<span>2 min ago</span>
-								  				</div>
-                                                  {/* <!--notification-info --> */}
-							  				</div>
-                                              {/* <!--notfication-details end--> */}
-							  				<div className="notfication-details">
-								  				<div className="noty-user-img">
-								  					<img src="http://via.placeholder.com/35x35" alt="" />
-								  				</div>
-								  				<div className="notification-info">
-								  					<h3><a href="#" title="">Poonam Verma </a> Bid on your Latest project.</h3>
-								  					<span>2 min ago</span>
-								  				</div>
-                                                  {/* <!--notification-info --> */}
-							  				</div>
-                                              {/* <!--notfication-details end--> */}
-							  				<div className="notfication-details">
-								  				<div className="noty-user-img">
-								  					<img src="http://via.placeholder.com/35x35" alt="" />
-								  				</div>
-								  				<div className="notification-info">
-								  					<h3><a href="#" title="">Tonney Dhman</a> Comment on your project</h3>
-								  					<span>2 min ago</span>
-								  				</div>
-                                                  {/* <!--notification-info --> */}
-							  				</div>
-                                              {/* <!--notfication-details end--> */}
-							  				<div className="notfication-details">
-								  				<div className="noty-user-img">
-								  					<img src="http://via.placeholder.com/35x35" alt="" />
-								  				</div>
-								  				<div className="notification-info">
-								  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-								  					<span>2 min ago</span>
-								  				</div>
-                                                  {/* <!--notification-info --> */}
-							  				</div>
-                                              {/* <!--notfication-details end--> */}
-							  			</div>
-                                          {/* <!--notifications-list end--> */}
-							  		</div>
-                                      {/* <!--acc-setting end--> */}
-							  	</div>
-							  	<div className="tab-pane fade" id="nav-requests" role="tabpanel" aria-labelledby="nav-requests-tab">
-							  		<div className="acc-setting">
-							  			<h3>Requests</h3>
-							  			<div className="requests-list">
-							  				<div className="request-details">
-							  					<div className="noty-user-img">
-							  						<img src="http://via.placeholder.com/35x35" alt="" />
-							  					</div>
-							  					<div className="request-info">
-							  						<h3>Jessica William</h3>
-							  						<span>Graphic Designer</span>
-							  					</div>
-							  					<div className="accept-feat">
-							  						<ul>
-							  							<li><button type="submit" className="accept-req">Accept</button></li>
-							  							<li><button type="submit" className="close-req"><i className="la la-close"></i></button></li>
-							  						</ul>
-							  					</div>
-                                                  {/* <!--accept-feat end--> */}
-							  				</div>
-                                              {/* <!--request-detailse end--> */}
-							  				<div className="request-details">
-							  					<div className="noty-user-img">
-							  						<img src="http://via.placeholder.com/35x35" alt="" />
-							  					</div>
-							  					<div className="request-info">
-							  						<h3>John Doe</h3>
-							  						<span>PHP Developer</span>
-							  					</div>
-							  					<div className="accept-feat">
-							  						<ul>
-							  							<li><button type="submit" className="accept-req">Accept</button></li>
-							  							<li><button type="submit" className="close-req"><i className="la la-close"></i></button></li>
-							  						</ul>
-							  					</div>
-                                                  {/* <!--accept-feat end--> */}
-							  				</div>
-                                              {/* <!--request-detailse end--> */}
-							  				<div className="request-details">
-							  					<div className="noty-user-img">
-							  						<img src="http://via.placeholder.com/35x35" alt="" />
-							  					</div>
-							  					<div className="request-info">
-							  						<h3>Poonam</h3>
-							  						<span>Wordpress Developer</span>
-							  					</div>
-							  					<div className="accept-feat">
-							  						<ul>
-							  							<li><button type="submit" className="accept-req">Accept</button></li>
-							  							<li><button type="submit" className="close-req"><i className="la la-close"></i></button></li>
-							  						</ul>
-							  					</div>
-                                                  {/* <!--accept-feat end--> */}
-							  				</div>
-                                              {/* <!--request-detailse end--> */}
-							  				<div className="request-details">
-							  					<div className="noty-user-img">
-							  						<img src="http://via.placeholder.com/35x35" alt="" />
-							  					</div>
-							  					<div className="request-info">
-							  						<h3>Bill Gates</h3>
-							  						<span>C & C++ Developer</span>
-							  					</div>
-							  					<div className="accept-feat">
-							  						<ul>
-							  							<li><button type="submit" className="accept-req">Accept</button></li>
-							  							<li><button type="submit" className="close-req"><i className="la la-close"></i></button></li>
-							  						</ul>
-							  					</div>
-                                                  {/* <!--accept-feat end--> */}
-							  				</div>
-                                              {/* <!--request-detailse end--> */}
-							  				<div className="request-details">
-							  					<div className="noty-user-img">
-							  						<img src="http://via.placeholder.com/35x35" alt="" />
-							  					</div>
-							  					<div className="request-info">
-							  						<h3>Jessica William</h3>
-							  						<span>Graphic Designer</span>
-							  					</div>
-							  					<div className="accept-feat">
-							  						<ul>
-							  							<li><button type="submit" className="accept-req">Accept</button></li>
-							  							<li><button type="submit" className="close-req"><i className="la la-close"></i></button></li>
-							  						</ul>
-							  					</div>
-                                                  {/* <!--accept-feat end--> */}
-							  				</div>
-                                              {/* <!--request-detailse end--> */}
-							  				<div className="request-details">
-							  					<div className="noty-user-img">
-							  						<img src="http://via.placeholder.com/35x35" alt="" />
-							  					</div>
-							  					<div className="request-info">
-							  						<h3>John Doe</h3>
-							  						<span>PHP Developer</span>
-							  					</div>
-							  					<div className="accept-feat">
-							  						<ul>
-							  							<li><button type="submit" className="accept-req">Accept</button></li>
-							  							<li><button type="submit" className="close-req"><i className="la la-close"></i></button></li>
-							  						</ul>
-							  					</div>
-                                                  {/* <!--accept-feat end--> */}
-							  				</div>
-                                              {/* <!--request-detailse end--> */}
-							  			</div>
-                                          {/* <!--requests-list end--> */}
-							  		</div>
-                                      {/* <!--acc-setting end--> */}
-							  	</div>
-							  	<div className="tab-pane fade" id="nav-deactivate" role="tabpanel" aria-labelledby="nav-deactivate-tab">
-							  		<div className="acc-setting">
-										<h3>Deactivate Account</h3>
-										<form>
-											<div className="cp-field">
-												<h5>Email</h5>
-												<div className="cpp-fiel">
-													<input type="text" name="email" placeholder="Email" />
-													<i className="fa fa-envelope"></i>
-												</div>
-											</div>
-											<div className="cp-field">
-												<h5>Password</h5>
-												<div className="cpp-fiel">
-													<input type="password" name="password" placeholder="Password" />
-													<i className="fa fa-lock"></i>
-												</div>
-											</div>
-											<div className="cp-field">
-												<h5>Please Explain Further</h5>
-												<textarea></textarea>
-											</div>
-											<div className="cp-field">
-												<div className="fgt-sec">
-													<input type="checkbox" name="cc" id="c4" />
-													<label for="c4">
-														<span></span>
-													</label>
-													<small>Email option out</small>
-												</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium nulla quis erat dapibus, varius hendrerit neque suscipit. Integer in ex euismod, posuere lectus id,</p>
-											</div>
-											<div className="save-stngs pd3">
-												<ul>
-													<li><button type="submit">Save Setting</button></li>
-													<li><button type="submit">Restore Setting</button></li>
-												</ul>
-											</div>
-                                            {/* <!--save-stngs end--> */}
-										</form>
-									</div>
-                                    {/* <!--acc-setting end--> */}
-							  	</div>
 							</div>
 						</div>
 					</div>
 					<div className='row'>
 					<div className="col-lg-3">
 							<div className="acc-leftbar">
-								<div className="nav nav-tabs" id="nav-tab" role="tablist">
-					
-								    <a className="nav-item nav-link" id="nav-deactivate-tab" data-toggle="tab" href="#nav-deactivate" role="tab" aria-controls="nav-deactivate" aria-selected="false"><i className="fa fa-random"></i>Deactivate Account</a>
-								  </div>
+							<button onClick={deleteUser}><i className="fa fa-random"></i>Delete your account</button>
 							</div>
                             {/* <!--acc-leftbar end--> */}
 						</div>

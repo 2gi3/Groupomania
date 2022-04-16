@@ -49,6 +49,8 @@ function SignIn(){
                 (res)=>{
                     sessionStorage.setItem("token", res.data.token)
 					sessionStorage.setItem("UserId", res.data.userId)
+					sessionStorage.setItem("UserName", res.data.userName)
+					sessionStorage.setItem("UserEmail", res.data.userEmail)
                     console.log('success!!');
                      
                      window.location="/";                

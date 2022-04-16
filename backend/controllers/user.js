@@ -48,6 +48,8 @@ exports.signup = (req, res, next) => {
               { expiresIn: '24h' });
             res.status(200).json({
               userId: user.id,
+              userName: user.UserName,
+              userEmail: user.UserEmail,
               token: token
             });
           }

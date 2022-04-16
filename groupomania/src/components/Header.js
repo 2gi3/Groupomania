@@ -19,72 +19,13 @@ function Header (){
 	function logOut(){
 		sessionStorage.removeItem('token');
 		sessionStorage.removeItem('UserId');
+		sessionStorage.removeItem('UserName');
+	    sessionStorage.removeItem('UserEmail');
 		window.location="/";
 	}
 	
-	const deleteUser=()=>{
-		const userId = sessionStorage.getItem('UserId'); 
-		axios.delete(`http://localhost:3000/api/auth/${userId}`, {
-			headers: {
-			//   Authorization: authorizationToken
-			},
-			data: {            
-				// UserName : userName,
-                // UserEmail:email,
-                // password:password,         
-			}
-		  });
-		 logOut();
-	}
     return ( 
         <div className="container-fluid">
-				{/* <div className="header-data">
-					<div className="logo">
-						<a href="index.html" title=""><img src={logo} width="150" alt="" /></a>
-					</div>
-                   	<nav>
-						<ul>
-							<li>
-								<Link to='/'>
-									<span><img src={icon1} alt="" /></span>
-									Home
-								</Link>
-							</li>
-							
-							<li>
-								<Link to='viewprofile'>
-									<span><img src={icon3} alt="" /></span>
-									Prfile
-								</Link>
-							</li>
-							<li>
-								<Link to='postview'>
-									<span><img src={icon4} alt="" /></span>
-									View post
-								</Link>
-								
-							</li>
-							<li>
-								<Link to='editpost'>
-									<span><img src={icon5} alt="" /></span>
-									edit post
-								</Link>
-							</li>
-							<li>
-								<Link to='signin'>
-									<span><img src={icon5} alt="" /></span>
-									Sign in
-								</Link>
-							</li>	
-							  <button onClick={logOut}>Log out</button>	
-							<li>
-							</li>	
-							  <button onClick={deleteUser}>Delete User</button>
-							<li>
-							</li>					
-						</ul>
-					</nav>               
-				</div> */}
 				 <nav className="navbar navbar-expand-md navbar-dark">
       <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
           <ul className="navbar-nav mr-auto">
@@ -120,9 +61,6 @@ function Header (){
           <ul className="navbar-nav ml-auto">
 			  <li className="nav-item">
 			  <button onClick={logOut}>Log out</button>
-              </li>
-              <li className="nav-item">
-			  <button onClick={deleteUser}>Delete User</button>
               </li>
           </ul>
       </div>
