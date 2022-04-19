@@ -10,6 +10,10 @@ import icon7 from "../assets/images/icon7.png"
 
 import { Link} from 'react-router-dom'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons'
+
+const fElement = <FontAwesomeIcon icon={faArrowRightFromBracket} />
 
 function Header (){
     function handleSubmit(e) {
@@ -60,7 +64,7 @@ function Header (){
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
           <ul className="navbar-nav ml-auto">
 			  <li className="nav-item">
-			  <button onClick={logOut}>Log out</button>
+			  <button className='p-2' onClick={logOut}>Log out {fElement} </button>
               </li>
           </ul>
       </div>

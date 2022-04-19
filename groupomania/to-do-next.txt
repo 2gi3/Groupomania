@@ -1,5 +1,4 @@
 To do:
-- fix showPost component, why does it always log post id 9?
 -add multimedia to post (multer saves picture to directory but doesn't save path in db, setState of picture
       is files[0], and probable problem is i can't extract the name from the file, name that appears in the object if i log it to the console)
 -identify posts that have been read already 
