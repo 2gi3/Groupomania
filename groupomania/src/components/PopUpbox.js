@@ -19,6 +19,9 @@ function PopUpbox (){
         }
 		let formData = new FormData
 		formData.append(
+			'imageUrl', imageUrl
+		)
+		formData.append(
 			'imageUrl', imageUrl.name
 		)
 		
@@ -45,7 +48,7 @@ function PopUpbox (){
             .catch((err)=>{
                             console.log(err);
             });	
-			// window.location="/";	
+			window.location="/";	
 
 	}
 	return(
