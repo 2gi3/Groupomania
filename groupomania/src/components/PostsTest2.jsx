@@ -26,7 +26,7 @@ function PostsTest2() {
     const content = posts.map((data, index) => {
         return (
         
-            <div className="posts-section col col-md-6" key={index}>
+            <div className="posts-section col col-md-6 col-lg-4" key={index}>
                 <Link to={`postview/${data.id}`} >
                 <div className="post-bar">
                     <div className="post_topbar">
@@ -37,16 +37,7 @@ function PostsTest2() {
                                 <span><img src={clock} alt="clock" />3 min ago</span>
                             </div>
                         </div>
-                        <div className="ed-opts">
-                            <a href="http://www.example.com" title="" className="ed-opts-open"><i className="la la-ellipsis-v"></i></a>
-                            <ul className="ed-options">
-                                <li><a href="http://www.example.com" title="">Edit Post</a></li>
-                                <li><a href="http://www.example.com" title="">Unsaved</a></li>
-                                <li><a href="http://www.example.com" title="">Unbid</a></li>
-                                <li><a href="http://www.example.com" title="">Close</a></li>
-                                <li><a href="http://www.example.com" title="">Hide</a></li>
-                            </ul>
-                        </div>
+                       
                     </div>
                     <div className="epi-sec">
                         <ul className="bk-links">
@@ -54,21 +45,14 @@ function PostsTest2() {
                             <li><a href="http://www.example.com" title=""><i className="la la-envelope"></i></a></li>
                         </ul>
                     </div>
-                    <div className="job_descp">
+                    <div className="job_descp ">
                         <h3>{data.title}</h3>
                         <p>{data.content}</p>
+                        <div className='d-flex flex-wrap justify-content-around'>
+                            <img src={data.imageUrl}   alt=""/>
+                        </div>
                     </div>
-                    <div className="job-status-bar">
-                        <ul className="like-com">
-                            <li>
-                                <a href="http://www.example.com"><i className="la la-heart"></i> Like</a>
-                                <img src={likedImg} alt="" />
-                                <span>25</span>
-                            </li>
-                            <li><a href="http://www.example.com" title="" className="com"><img src={com} alt="" /> Comment 15</a></li>
-                        </ul>
-                        <a href="http://www.example.com"><i className="la la-eye"></i>Views 50</a>
-                    </div>
+                    
                 </div>     
                 </Link>          
             </div>

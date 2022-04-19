@@ -124,6 +124,7 @@ section {
 }
 img {
 	float: left;
+	max-width: 100%;
 }
 p {
 	font-size: 14px;
@@ -1185,6 +1186,8 @@ main {
 	width: 100%;
 	padding: 0 20px 20px 20px;
 	border-bottom: 1px solid #e5e5e5;
+	overflow: hidden;
+	max-height: 300px;
 }
 .job_descp h3 {
 	color: #000000;

@@ -40,6 +40,11 @@ function PostView() {
 								</div>
 							</div>
 						</div>
+						<div className='row'>
+							<div className='col-lg-8 d-flex flex-wrap justify-content-around'>
+                               <img src={postData.imageUrl} max-width='300'  alt=""/>
+                            </div>
+					    </div>
 					</div>
 				</div>
 			</section>
