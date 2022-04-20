@@ -8,22 +8,46 @@ import { useParams } from 'react-router-dom';
 function PostView() {
 	const [postData, setPostData] = useState('')
 	const params = useParams()
+	let history = localStorage.getItem("history");
+	let alreadyRead=[];
+	let postId;
 	useEffect(() => {
 		axios.get(`http://localhost:3000/api/posts/${params.id}`)
 			.then(res => {
 				setPostData(res.data)
+				console.log(res.data.id)
+			     postId= res.data.id;
+				// save post id to local storage
+				if(history==null){
+					alreadyRead.push(postId);
+					localStorage.setItem("history", JSON.stringify(alreadyRead))
+				}else{
+					alreadyRead = JSON.parse(localStorage.getItem("history"));
+					alreadyRead.push(postId);
+					localStorage.setItem("history", JSON.stringify(alreadyRead));
+				}
+
 			}
-			).catch(err => {
+			).catch(err => { 
 				console.log(err)
 			})
 			
 	}, [])
 	
+	// not working
+	if(history==null){
+		console.log('first post read')
+	}else if(history.indexOf(postData.id)!== -1){
+		console.log('already read');
+	}else{
+		console.log('not yet read');
+	}
+
+	
 	if (!sessionStorage.getItem('token')) {
 
 		return <Navigate to={"/signin"} />;
 	}
-
 
 	return (
 		<Fragment>
@@ -45,6 +69,8 @@ function PostView() {
                                <img src={postData.imageUrl} max-width='300'  alt=""/>
                             </div>
 					    </div>
+						<button className='p-2 col-4'>delete </button>
+						<button className='p-2 col-4'>modify </button>
 					</div>
 				</div>
 			</section>

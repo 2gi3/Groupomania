@@ -68,7 +68,7 @@ function PostsTest2() {
                             <li><a className="post-jb active" href="#" title="">Create a Post</a></li>
                         </ul>
                     </div>
-                    <h1>Hello {userName} &#x1F31D; <br/>Here's what's going on io our community:</h1>
+                    <h1>Hello {userName} &#x1F31D; <br/>Here's what's going on in our community:</h1>
                 </div>
                 {content}
             </div>
