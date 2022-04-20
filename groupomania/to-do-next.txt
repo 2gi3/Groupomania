@@ -23,4 +23,4 @@ A user profile must include very little information for it to be quick to comple
 Account deletion must be possible;                                                      |
 The tool should include an open forum where employees can publish multimedia content;   |
 The tool should include an open forum where employees can publish written content;      |
-Users should be able to easily identify unread posts written by other employees.
+Users should be able to easily identify unread posts written by other employees.        |
