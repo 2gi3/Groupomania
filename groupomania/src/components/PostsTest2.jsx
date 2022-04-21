@@ -10,9 +10,12 @@ function PostsTest2() {
     const [posts, setPosts] = useState([''])
     const [resourceType, setResourceType] = useState(1)
     const userName = sessionStorage.getItem('UserName');
-
+    const access_token = sessionStorage.getItem('token');
     useEffect(() => {
-        axios.get("http://localhost:3000/api/posts")
+        axios.get("http://localhost:3000/api/posts",
+        {headers: {
+            'Authorization': `token ${access_token}`
+          }})
             .then(res => {
                 console.log(res)
                 setPosts(res.data)
