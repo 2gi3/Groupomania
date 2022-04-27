@@ -1,3 +1,4 @@
+// ftd
 import {BrowserRouter as Router, Routes, Route, Link,} from 'react-router-dom'
 import React,{ useEffect, useState } from 'react';
 import Header from './components/Header';
@@ -10,16 +11,16 @@ import EditPost from './components/EditPost';
 import ViewProfile from './components/ViewProfile';
 import TestComponentPost from './components/TestComponentPost';
 import PostsTest2 from './components/PostsTest2'
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect( () =>{
-
     if(sessionStorage.getItem('token')){
       setIsAuthenticated(true)
     }
-
    },[])
+
   return (
     <Router>
       <div className='wrapper'>

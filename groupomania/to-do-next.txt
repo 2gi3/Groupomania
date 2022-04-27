@@ -1,17 +1,17 @@
 To do:
+-many to many table (post views, post id in one col, and user id in another)
 -wcag
--manage permissions/secure website OWASP
+
 
 (unnecessary)-read, update and delete Posts and add like 
 
 
 QUESTIONS:
-- post picture to database
-- <PopUpBox /> in <HomePage /> why/how does it work?
+- typeScript
 - Make navbar and footer desappear keeping them in react router but outside of routes <App />
+- <PopUpBox /> in <HomePage /> why/how does it work?
 - Is there a more efficient way to cancel the <PopUpBox />?
 - sql database storage with netly and heroku
-- relations in sql database
 - create file with commandline (echo > name not able to save)
 
 ----------------------------------------------------------------------------------------

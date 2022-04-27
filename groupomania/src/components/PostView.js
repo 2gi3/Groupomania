@@ -1,3 +1,4 @@
+// ftd
 import '../css/style.css';
 import { Fragment } from 'react';
 import { Navigate } from 'react-router-dom';
@@ -8,12 +9,18 @@ import { useParams } from 'react-router-dom';
 function PostView() {
 	const [postData, setPostData] = useState('')
 	const params = useParams()
-	const[readStamp, setReadStamp] = useState('')
+	const [readStamp, setReadStamp] = useState('')
+	const access_token = sessionStorage.getItem('token');
 	let history = localStorage.getItem("history");
 	let alreadyRead = [];
 	let postId;
+
 	useEffect(() => {
-		axios.get(`http://localhost:3000/api/posts/${params.id}`)
+		axios.get(`http://localhost:3000/api/posts/${params.id}`,
+			{   headers: {
+					'Authorization': `token ${access_token}`
+				}
+			})
 			.then(res => {
 				setPostData(res.data)
 				console.log(res.data.id)
@@ -41,14 +48,11 @@ function PostView() {
 			})
 	}, [])
 
-	if (!sessionStorage.getItem('token')) {
-
-		return <Navigate to={"/signin"} />;
-	}
+	if (!sessionStorage.getItem('token'))
+	 { return <Navigate to={"/signin"} />;}
 
 	return (
 		<Fragment>
-
 			<section className="forum-page">
 				<div className="container">
 					<div className="forum-questions-sec">
@@ -72,14 +76,7 @@ function PostView() {
 					</div>
 				</div>
 			</section>
-
-
-
-
-
-
 		</Fragment>
-
 	)
 }
 export default PostView

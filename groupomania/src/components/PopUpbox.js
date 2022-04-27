@@ -1,22 +1,17 @@
-import React,{ useEffect, useState } from 'react';
-import { Link} from 'react-router-dom'
+// ftd
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-function PopUpbox (){
+function PopUpbox() {
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
 	const [UserName, setUserName] = useState('');
 	const [imageUrl, setImageUrl] = useState('')
-	
-	const createPost=(e)=>{
+
+	const createPost = (e) => {
 		e.preventDefault();
-		console.log(imageUrl)
-		let data ={
-            UserName:UserName,
-			title:title,
-            content:content,   
-			imageUrl:imageUrl                   
-        }
+		
 		let formData = new FormData
 		formData.append(
 			'imageUrl', imageUrl
@@ -24,44 +19,46 @@ function PopUpbox (){
 		formData.append(
 			'imageUrl', imageUrl.name
 		)
-		
 		formData.append(
 			'UserName', UserName
 		)
-		
 		formData.append(
 			'title', title
 		)
-		
 		formData.append(
 			'content', content
 		)
-		
 
+		const access_token = sessionStorage.getItem('token');
 		
-		axios.post("http://localhost:3000/api/posts",formData)
-            .then(
-                (res)=>{
-                    console.log('post created');               
-         
-            })
-            .catch((err)=>{
-                            console.log(err);
-            });	
-			window.location="/";	
+		axios.post("http://localhost:3000/api/posts", formData,
+		{
+			headers: {
+			  'Authorization': `Basic ${access_token}`
+			}
+		  })
+			.then(
+				(res) => {
+					console.log('post created');
 
+				})
+			.catch((err) => {
+				console.log(err);
+			});
+		window.location = "/";
 	}
-	return(
+
+	return (
 		<div className="post-popup job_post">
 			<div className="post-project">
 				<h3>Create a post</h3>
 				<div className="post-project-fields">
-					<form method="post" encType="multipart/form-data" onSubmit={event =>createPost(event)}>
+					<form method="post" encType="multipart/form-data" onSubmit={event => createPost(event)}>
 						<div className="row">
 							<div className="col-lg-12">
 								<input type="text" name="title" placeholder="Title" onChange={event => setTitle(event.target.value)} />
 							</div>
-							
+
 							<div className="col-lg-12">
 								<textarea name="content" placeholder="content" onChange={event => setContent(event.target.value)}></textarea>
 							</div>
@@ -70,7 +67,7 @@ function PopUpbox (){
 							</div>
 							<div className="col-lg-12">
 								<input type="file" name="imageuRL" placeholder="imageuRL" onChange={event => setImageUrl(event.target.files[0])}
-								accept="image/png, image/jpeg, image/jpg, image/webp">									
+									accept="image/png, image/jpeg, image/jpg, image/webp">
 								</input>
 							</div>
 							<div className="col-lg-12">
@@ -82,10 +79,8 @@ function PopUpbox (){
 						</div>
 					</form>
 				</div>
-                {/* <!--post-project-fields end--> */}
 				<a href="www.google.com" title=""><i className="la la-times-circle-o"></i></a>
 			</div>
-            {/* <!--post-project end--> */}
 		</div>
 	)
 
