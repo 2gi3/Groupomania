@@ -5,6 +5,6 @@ const multer = require('../middleware/multer-config');
 const postUCtrl = require('../controllers/user-posts');
 
 router.post('/', postUCtrl.ceateUserPosts);
-// router.get('/:id', postUCtrl.getAllPosts);
+router.get('/:id', postUCtrl.getAllUserPosts);
 
 module.exports = router;
