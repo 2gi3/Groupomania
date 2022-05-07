@@ -1,30 +1,55 @@
 import '../css/style.css';
-import { Navigate} from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 
-function ViewProfile(){
+function ViewProfile() {
 	let userName = sessionStorage.getItem('UserName');
 	let userEmail = sessionStorage.getItem('UserEmail');
 
-	const deleteUser=()=>{
-		const userId = sessionStorage.getItem('UserId'); 
+
+	let UserId = sessionStorage.getItem('UserId')
+	const [history, setHistory] = useState([])
+	useEffect(() => {
+		axios.get(`http://localhost:3000/api/user-posts/${UserId}`,
+			// {   headers: {
+			//         'Authorization': `token ${access_token}`
+			//     }
+			// }
+		)
+			.then(res => {
+				setHistory(res.data.map(a => a.postId))
+			}
+			).catch(err => {
+				console.log(err)
+			})
+	}, [])
+	console.log(history)
+	sessionStorage.setItem("history", history)
+
+
+
+
+
+	const deleteUser = () => {
+		const userId = sessionStorage.getItem('UserId');
 		axios.delete(`http://localhost:3000/api/auth/${userId}`, {
 			headers: {
-			//   Authorization: authorizationToken
+				//   Authorization: authorizationToken
 			},
-		  });
-		  sessionStorage.removeItem('token');
-		  sessionStorage.removeItem('UserId');
-		  sessionStorage.removeItem('UserName');
-		  sessionStorage.removeItem('UserEmail');
-		  window.location="/";
+		});
+		sessionStorage.removeItem('token');
+		sessionStorage.removeItem('UserId');
+		sessionStorage.removeItem('UserName');
+		sessionStorage.removeItem('UserEmail');
+		window.location = "/";
 	}
-	if(!sessionStorage.getItem('token') ){
-        
-        return <Navigate to={"/signin"} />;
-    }
-    return(
-        <section className="profile-account-setting">
+	if (!sessionStorage.getItem('token')) {
+
+		return <Navigate to={"/signin"} />;
+	}
+	return (
+		<section className="profile-account-setting">
 			<div className="container">
 				<div className="account-tabs-setting">
 					<div className="row">
@@ -41,32 +66,32 @@ function ViewProfile(){
 													<a href="#" title=""><img src="images/up-btn.png" alt="" /></a>
 												</div>
 											</div>
-                                            {/* <!--notbar end--> */}
+											{/* <!--notbar end--> */}
 											<div className="notbar">
 												<h4> Email</h4>
 												<p>{userEmail}</p>
 												<div className="toggle-btn">
 													<a href="#" title=""><img src="images/up-btn.png" alt="" /></a>
 												</div>
-											</div>								
+											</div>
 										</form>
-									</div>                                   
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div className='row'>
-					<div className="col-lg-3">
+						<div className="col-lg-3">
 							<div className="acc-leftbar">
-							<button onClick={deleteUser}><i className="fa fa-random"></i>Delete your account</button>
+								<button onClick={deleteUser}><i className="fa fa-random"></i>Delete your account</button>
 							</div>
-                            {/* <!--acc-leftbar end--> */}
+							{/* <!--acc-leftbar end--> */}
 						</div>
 					</div>
 				</div>
-                {/* <!--account-tabs-setting end--> */}
+				{/* <!--account-tabs-setting end--> */}
 			</div>
 		</section>
-    )
+	)
 }
 export default ViewProfile

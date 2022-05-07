@@ -8,7 +8,10 @@ function SignIn(){
 	const[emailInvalid, setEmailInvalid] = useState('')
 	const[nameWarning, setNameWarning] = useState('')
 	const [passwordWarning, setPasswordWarning] = useState('')
+	let UserId='';
 	const re = /\S+@\S+\.\S+/g;
+
+
 	
 	const signup=(e)=>{
 		e.preventDefault();
@@ -50,7 +53,7 @@ function SignIn(){
 
 	const logIn =(e)=>{
 		e.preventDefault();
-		console.log( email, password)
+		// console.log( email, password)
 		let data ={            
             email:email,
             password:password,       
@@ -67,7 +70,8 @@ function SignIn(){
 					sessionStorage.setItem("UserId", res.data.userId)
 					sessionStorage.setItem("UserName", res.data.userName)
 					sessionStorage.setItem("UserEmail", res.data.userEmail)
-                    console.log('success!!');
+					UserId = res.data.userId;
+                    console.log(UserId);
                      
                      window.location="/";                
          
@@ -79,6 +83,7 @@ function SignIn(){
 
 	}
 }
+
     return(
 <div className="sign-in-page">
 			<div className="signin-popup">

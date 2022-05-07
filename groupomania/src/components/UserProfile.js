@@ -1,10 +1,37 @@
 import { Fragment } from 'react';
 import '../css/style.css';
 import Header from './Header';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
 
-function UserProfile(){
-    return(<Fragment>
-	        <section className="cover-sec">
+
+
+function UserProfile() {
+	let UserId = sessionStorage.getItem('UserId')
+	const [history, setHistory] = useState([''])
+
+	useEffect(() => {
+
+		axios.get(`localhost:3000/api/user-posts/${UserId}`,
+			// {   headers: {
+			//         'Authorization': `token ${access_token}`
+			//     }
+			// }
+		)
+			.then(res => {
+				setHistory(res)
+				console.log(res)
+			}
+			).catch(err => {
+				console.log(err)
+			})
+
+	}, [])
+
+	console.log(UserId)
+	console.log(history)
+	return (<Fragment>
+		<section className="cover-sec">
 			<img src="http://via.placeholder.com/1600x400" alt="" />
 		</section>
 
@@ -20,7 +47,7 @@ function UserProfile(){
 										<div className="user-pro-img">
 											<img src="http://via.placeholder.com/170x170" alt="" />
 										</div>
-                                        {/* <!--user-pro-img end--> */}
+										{/* <!--user-pro-img end--> */}
 										<div className="user_pro_status">
 											<ul className="flw-hr">
 												<li><a href="#" title="" className="flww"><i className="la la-plus"></i> Follow</a></li>
@@ -37,7 +64,7 @@ function UserProfile(){
 												</li>
 											</ul>
 										</div>
-                                        {/* <!--user_pro_status end--> */}
+										{/* <!--user_pro_status end--> */}
 										<ul className="social_links">
 											<li><a href="#" title=""><i className="la la-globe"></i> www.example.com</a></li>
 											<li><a href="#" title=""><i className="fa fa-facebook-square"></i> Http://www.facebook.com/john...</a></li>
@@ -49,13 +76,13 @@ function UserProfile(){
 											<li><a href="#" title=""><i className="fa fa-youtube"></i> Http://www.youtube.com/john...</a></li>
 										</ul>
 									</div>
-                                    {/* <!--user_profile end--> */}
+									{/* <!--user_profile end--> */}
 									<div className="suggestions full-width">
 										<div className="sd-title">
 											<h3>Suggestions</h3>
 											<i className="la la-ellipsis-v"></i>
 										</div>
-                                        {/* <!--sd-title end--> */}
+										{/* <!--sd-title end--> */}
 										<div className="suggestions-list">
 											<div className="suggestion-usd">
 												<img src="http://via.placeholder.com/35x35" alt="" />
@@ -109,11 +136,11 @@ function UserProfile(){
 												<a href="#" title="">View More</a>
 											</div>
 										</div>
-                                        {/* <!--suggestions-list end--> */}
+										{/* <!--suggestions-list end--> */}
 									</div>
-                                    {/* <!--suggestions end--> */}
+									{/* <!--suggestions end--> */}
 								</div>
-                                {/* <!--main-left-sidebar end--> */}
+								{/* <!--main-left-sidebar end--> */}
 							</div>
 							<div className="col-lg-6">
 								<div className="main-ws-sec">
@@ -129,7 +156,7 @@ function UserProfile(){
 												<li><i className="fa fa-star-half-o"></i></li>
 											</ul>
 										</div>
-                                        {/* <!--star-descp end--> */}
+										{/* <!--star-descp end--> */}
 										<div className="tab-feed">
 											<ul>
 												<li data-tab="feed-dd" className="active">
@@ -152,9 +179,9 @@ function UserProfile(){
 												</li>
 											</ul>
 										</div>
-                                        {/* <!-- tab-feed end--> */}
+										{/* <!-- tab-feed end--> */}
 									</div>
-                                    {/* <!--user-tab-sec end--> */}
+									{/* <!--user-tab-sec end--> */}
 									<div className="product-feed-tab current" id="feed-dd">
 										<div className="posts-section">
 											<div className="post-bar">
@@ -199,7 +226,7 @@ function UserProfile(){
 														<li><a href="#" title="">PHP</a></li>
 														<li><a href="#" title="">CSS</a></li>
 														<li><a href="#" title="">Javascript</a></li>
-														<li><a href="#" title="">Wordpress</a></li> 	
+														<li><a href="#" title="">Wordpress</a></li>
 													</ul>
 												</div>
 												<div className="job-status-bar">
@@ -208,13 +235,13 @@ function UserProfile(){
 															<a href="#"><i className="la la-heart"></i> Like</a>
 															<img src="images/liked-img.png" alt="" />
 															<span>25</span>
-														</li> 
+														</li>
 														<li><a href="#" title="" className="com"><img src="images/com.png" alt="" /> Comment 15</a></li>
 													</ul>
 													<a><i className="la la-eye"></i>Views 50</a>
 												</div>
 											</div>
-                                            {/* <!--post-bar end--> */}
+											{/* <!--post-bar end--> */}
 											<div className="post-bar">
 												<div className="post_topbar">
 													<div className="usy-dt">
@@ -257,7 +284,7 @@ function UserProfile(){
 														<li><a href="#" title="">PHP</a></li>
 														<li><a href="#" title="">CSS</a></li>
 														<li><a href="#" title="">Javascript</a></li>
-														<li><a href="#" title="">Wordpress</a></li> 	
+														<li><a href="#" title="">Wordpress</a></li>
 													</ul>
 												</div>
 												<div className="job-status-bar">
@@ -266,13 +293,13 @@ function UserProfile(){
 															<a href="#"><i className="la la-heart"></i> Like</a>
 															<img src="images/liked-img.png" alt="" />
 															<span>25</span>
-														</li> 
+														</li>
 														<li><a href="#" title="" className="com"><img src="images/com.png" alt="" /> Comment 15</a></li>
 													</ul>
 													<a><i className="la la-eye"></i>Views 50</a>
 												</div>
 											</div>
-                                            {/* <!--post-bar end--> */}
+											{/* <!--post-bar end--> */}
 											<div className="post-bar">
 												<div className="post_topbar">
 													<div className="usy-dt">
@@ -315,7 +342,7 @@ function UserProfile(){
 														<li><a href="#" title="">PHP</a></li>
 														<li><a href="#" title="">CSS</a></li>
 														<li><a href="#" title="">Javascript</a></li>
-														<li><a href="#" title="">Wordpress</a></li> 	
+														<li><a href="#" title="">Wordpress</a></li>
 													</ul>
 												</div>
 												<div className="job-status-bar">
@@ -324,13 +351,13 @@ function UserProfile(){
 															<a href="#"><i className="la la-heart"></i> Like</a>
 															<img src="images/liked-img.png" alt="" />
 															<span>25</span>
-														</li> 
+														</li>
 														<li><a href="#" title="" className="com"><img src="images/com.png" alt="" /> Comment 15</a></li>
 													</ul>
 													<a><i className="la la-eye"></i>Views 50</a>
 												</div>
 											</div>
-                                            {/* <!--post-bar end--> */}
+											{/* <!--post-bar end--> */}
 											<div className="post-bar">
 												<div className="post_topbar">
 													<div className="usy-dt">
@@ -373,7 +400,7 @@ function UserProfile(){
 														<li><a href="#" title="">PHP</a></li>
 														<li><a href="#" title="">CSS</a></li>
 														<li><a href="#" title="">Javascript</a></li>
-														<li><a href="#" title="">Wordpress</a></li> 	
+														<li><a href="#" title="">Wordpress</a></li>
 													</ul>
 												</div>
 												<div className="job-status-bar">
@@ -382,13 +409,13 @@ function UserProfile(){
 															<a href="#"><i className="la la-heart"></i> Like</a>
 															<img src="images/liked-img.png" alt="" />
 															<span>25</span>
-														</li> 
+														</li>
 														<li><a href="#" title="" className="com"><img src="images/com.png" alt="" /> Comment 15</a></li>
 													</ul>
 													<a><i className="la la-eye"></i>Views 50</a>
 												</div>
 											</div>
-                                            {/* <!--post-bar end--> */}
+											{/* <!--post-bar end--> */}
 											<div className="process-comm">
 												<div className="spinner">
 													<div className="bounce1"></div>
@@ -396,17 +423,17 @@ function UserProfile(){
 													<div className="bounce3"></div>
 												</div>
 											</div>
-                                            {/* <!--process-comm end--> */}
+											{/* <!--process-comm end--> */}
 										</div>
-                                        {/* <!--posts-section end--> */}
+										{/* <!--posts-section end--> */}
 									</div>
-                                    {/* <!--product-feed-tab end--> */}
+									{/* <!--product-feed-tab end--> */}
 									<div className="product-feed-tab" id="info-dd">
 										<div className="user-profile-ov">
 											<h3>Overview</h3>
 											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. Nunc eu augue nec arcu efficitur faucibus. Aliquam accumsan ac magna convallis bibendum. Quisque laoreet augue eget augue fermentum scelerisque. Vivamus dignissim mollis est dictum blandit. Nam porta auctor neque sed congue. Nullam rutrum eget ex at maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget vestibulum lorem.</p>
 										</div>
-                                        {/* <!--user-profile-ov end--> */}
+										{/* <!--user-profile-ov end--> */}
 										<div className="user-profile-ov st2">
 											<h3>Experience</h3>
 											<h4>Web designer</h4>
@@ -416,20 +443,20 @@ function UserProfile(){
 											<h4>PHP developer</h4>
 											<p className="no-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. </p>
 										</div>
-                                        {/* <!--user-profile-ov end--> */}
+										{/* <!--user-profile-ov end--> */}
 										<div className="user-profile-ov">
 											<h3>Education</h3>
 											<h4>Master of Computer Science</h4>
 											<span>2015 - 2018</span>
 											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. </p>
 										</div>
-                                        {/* <!--user-profile-ov end--> */}
+										{/* <!--user-profile-ov end--> */}
 										<div className="user-profile-ov">
 											<h3>Location</h3>
 											<h4>India</h4>
 											<p>151/4 BT Chownk, Delhi </p>
 										</div>
-                                        {/* <!--user-profile-ov end--> */}
+										{/* <!--user-profile-ov end--> */}
 										<div className="user-profile-ov">
 											<h3>Skills</h3>
 											<ul>
@@ -443,9 +470,9 @@ function UserProfile(){
 												<li><a href="#" title="">Corel Draw</a></li>
 											</ul>
 										</div>
-                                        {/* <!--user-profile-ov end--> */}
+										{/* <!--user-profile-ov end--> */}
 									</div>
-                                    {/* <!--product-feed-tab end--> */}
+									{/* <!--product-feed-tab end--> */}
 									<div className="product-feed-tab" id="portfolio-dd">
 										<div className="portfolio-gallery-sec">
 											<h3>Portfolio</h3>
@@ -456,80 +483,80 @@ function UserProfile(){
 															<img src="http://via.placeholder.com/271x174" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+														{/* <!--gallery_pt end--> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+														{/* <!--gallery_pt end--> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+														{/* <!--gallery_pt end--> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+														{/* <!--gallery_pt end--> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+														{/* <!--gallery_pt end--> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end --> */}
+														{/* <!--gallery_pt end --> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+														{/* <!--gallery_pt end--> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+														{/* <!--gallery_pt end--> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+														{/* <!--gallery_pt end--> */}
 													</div>
 													<div className="col-lg-4 col-md-4 col-sm-6 col-6">
 														<div className="gallery_pt">
 															<img src="http://via.placeholder.com/170x170" alt="" />
 															<a href="#" title=""><img src="images/all-out.png" alt="" /></a>
 														</div>
-                                                        {/* <!--gallery_pt end--> */}
+														{/* <!--gallery_pt end--> */}
 													</div>
 												</div>
 											</div>
-                                            {/* <!--gallery_pf end--> */}
+											{/* <!--gallery_pf end--> */}
 										</div>
-                                        {/* <!--portfolio-gallery-sec end--> */}
+										{/* <!--portfolio-gallery-sec end--> */}
 									</div>
-                                    {/* <!--product-feed-tab end--> */}
+									{/* <!--product-feed-tab end--> */}
 								</div>
-                                {/* <!--main-ws-sec end--> */}
+								{/* <!--main-ws-sec end--> */}
 							</div>
 							<div className="col-lg-3">
 								<div className="right-sidebar">
@@ -557,20 +584,20 @@ function UserProfile(){
 												<li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt="" /></a></li>
 											</ul>
 										</div>
-                                        {/* <!--pf-gallery end--> */}
+										{/* <!--pf-gallery end--> */}
 									</div>
-                                    {/* <!--widget-portfolio end--> */}
+									{/* <!--widget-portfolio end--> */}
 								</div>
-                                {/* <!--right-sidebar end--> */}
+								{/* <!--right-sidebar end--> */}
 							</div>
 						</div>
 					</div>
-                    {/* <!-- main-section-data end--> */}
-				</div> 
+					{/* <!-- main-section-data end--> */}
+				</div>
 			</div>
 		</main>
-    </Fragment>
+	</Fragment>
 
-    )
+	)
 }
 export default UserProfile
