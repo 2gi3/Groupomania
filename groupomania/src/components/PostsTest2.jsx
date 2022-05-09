@@ -12,6 +12,10 @@ function PostsTest2() {
     const [resourceType, setResourceType] = useState(1)
     const userName = sessionStorage.getItem('UserName');
     const access_token = sessionStorage.getItem('token');
+    const [readStamp, setReadStamp] = useState('')
+    const history = sessionStorage.getItem("history");
+    let alreadyRead = [];
+    let postId;
 
     useEffect(() => {
         axios.get("http://localhost:3000/api/posts",
@@ -39,7 +43,7 @@ function PostsTest2() {
                                 <img src="http://via.placeholder.com/50x50" alt="" />
                                 <div className="usy-name">
                                     <h3>{data.UserName}</h3>
-                                    <span><img src={clock} alt="clock" />3 min ago</span>
+                                    {history.indexOf(data.id) !== -1? <p>you have already read this post yet</p>: <p>you haven't read this post yet</p>}
                                 </div>
                             </div>
                         </div>

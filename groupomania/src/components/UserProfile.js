@@ -7,29 +7,7 @@ import axios from 'axios'
 
 
 function UserProfile() {
-	let UserId = sessionStorage.getItem('UserId')
-	const [history, setHistory] = useState([''])
-
-	useEffect(() => {
-
-		axios.get(`localhost:3000/api/user-posts/${UserId}`,
-			// {   headers: {
-			//         'Authorization': `token ${access_token}`
-			//     }
-			// }
-		)
-			.then(res => {
-				setHistory(res)
-				console.log(res)
-			}
-			).catch(err => {
-				console.log(err)
-			})
-
-	}, [])
-
-	console.log(UserId)
-	console.log(history)
+	
 	return (<Fragment>
 		<section className="cover-sec">
 			<img src="http://via.placeholder.com/1600x400" alt="" />

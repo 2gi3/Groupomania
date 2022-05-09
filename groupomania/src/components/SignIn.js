@@ -73,7 +73,7 @@ function SignIn(){
 					UserId = res.data.userId;
                     console.log(UserId);
                      
-                     window.location="/";                
+                     window.location="viewprofile";                
          
             })
 

@@ -11,9 +11,10 @@ function PostView() {
 	const params = useParams()
 	const [readStamp, setReadStamp] = useState('')
 	const access_token = sessionStorage.getItem('token');
-	let history = localStorage.getItem("history");
+	let history = sessionStorage.getItem("history");
+	let UserId = sessionStorage.getItem('UserId')
 	let alreadyRead = [];
-	let postId;
+	let postId ;
 
 	useEffect(() => {
 		axios.get(`http://localhost:3000/api/posts/${params.id}`,
@@ -23,16 +24,15 @@ function PostView() {
 			})
 			.then(res => {
 				setPostData(res.data)
-				console.log(res.data.id)
-				postId = res.data.id;
+				// postId = res.data.id
 				// save post id to local storage
-				if (history == null) {
+				if (history.length === 0) {
 					alreadyRead.push(postId);
-					localStorage.setItem("history", JSON.stringify(alreadyRead))
+					sessionStorage.setItem("history", JSON.stringify(alreadyRead))
 				} else {
-					alreadyRead = JSON.parse(localStorage.getItem("history"));
+					alreadyRead = JSON.parse(sessionStorage.getItem("history"));
 					alreadyRead.push(postId);
-					localStorage.setItem("history", JSON.stringify(alreadyRead));
+					sessionStorage.setItem("history", JSON.stringify(alreadyRead));
 				}
 				// log wether or not it's been read
 				if (history == null) {
@@ -47,6 +47,31 @@ function PostView() {
 				console.log(err)
 			})
 	}, [])
+
+	const updateHistory=()=>{
+	let userPost ={
+		"userId":UserId,
+		"postId":JSON.stringify(postData.id	)
+	}
+	let userPostString = JSON.stringify(userPost)
+	console.log(userPostString)
+
+	// let formData = new FormData
+	// 	formData.append(
+	// 		'userId',UserId
+	// 	)
+	// 	formData.append(
+	// 		'postId',postData.id
+	// 	)
+	// 	console.log(formData)
+	axios.post(`http://localhost:3000/api/user-posts/`, userPostString,
+	{
+		headers: {
+		  'Authorization': `Basic ${access_token}`
+		}
+	  }
+			)
+}
 
 	if (!sessionStorage.getItem('token'))
 	 { return <Navigate to={"/signin"} />;}
@@ -72,7 +97,7 @@ function PostView() {
 							</div>
 						</div>
 						<button className='p-2 col-4'>delete </button>
-						<button className='p-2 col-4'>modify </button>
+						<button className='p-2 col-4' onClick={updateHistory}>Mark as read </button>
 					</div>
 				</div>
 			</section>

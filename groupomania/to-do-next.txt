@@ -1,8 +1,13 @@
 To do:
 -many to many table (post views, post id in one col, and user id in another)
 -wcag
--instructions
--trello
+Export sql tables and commit to code
+
+Use trello to setup cards for the 10 requirements from slide 6
+Include instructions for running code in Readme.
+
+Remove the node_modules
+
 
 
 (unnecessary)-read, update and delete Posts and add like 
