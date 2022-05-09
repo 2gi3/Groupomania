@@ -16,6 +16,21 @@ function PostView() {
 	let alreadyRead = [];
 	let postId ;
 
+	const updateHistory=()=>{
+		let userPost ={
+			"userId":UserId,
+			"postId":JSON.stringify(postData.id	)
+		}
+		let userPostString = JSON.stringify(userPost)
+		console.log(userPostString)
+		fetch(`http://localhost:3000/api/user-posts/`,{
+			method: 'post',
+			headers: {'content-type': 'application/json'},
+			body: userPostString
+		}
+		)
+	}
+
 	useEffect(() => {
 		axios.get(`http://localhost:3000/api/posts/${params.id}`,
 			{   headers: {
@@ -24,7 +39,7 @@ function PostView() {
 			})
 			.then(res => {
 				setPostData(res.data)
-				// postId = res.data.id
+				postId = res.data.id
 				// save post id to local storage
 				if (history.length === 0) {
 					alreadyRead.push(postId);
@@ -47,15 +62,9 @@ function PostView() {
 				console.log(err)
 			})
 	}, [])
+  
 
-	const updateHistory=()=>{
-	let userPost ={
-		"userId":UserId,
-		"postId":JSON.stringify(postData.id	)
-	}
-	let userPostString = JSON.stringify(userPost)
-	console.log(userPostString)
-
+	
 	// let formData = new FormData
 	// 	formData.append(
 	// 		'userId',UserId
@@ -64,17 +73,16 @@ function PostView() {
 	// 		'postId',postData.id
 	// 	)
 	// 	console.log(formData)
-	axios.post(`http://localhost:3000/api/user-posts/`, userPostString,
-	{
-		headers: {
-		  'Authorization': `Basic ${access_token}`
-		}
-	  }
-			)
-}
+	// axios.post(`http://localhost:3000/api/user-posts/`, userPostString,
+	// {
+	// 	headers: {
+	// 	  'Authorization': `Basic ${access_token}`
+	// 	}
+	//   }
 
 	if (!sessionStorage.getItem('token'))
 	 { return <Navigate to={"/signin"} />;}
+
 
 	return (
 		<Fragment>

@@ -1,25 +1,19 @@
 To do:
 -many to many table (post views, post id in one col, and user id in another)
 -wcag
-Export sql tables and commit to code
-
 Use trello to setup cards for the 10 requirements from slide 6
 Include instructions for running code in Readme.
 
-Remove the node_modules
+Remove the node_modules(to double check/ delete from github)
 
 
-
-(unnecessary)-read, update and delete Posts and add like 
 
 
 QUESTIONS:
 - typeScript
-- Make navbar and footer desappear keeping them in react router but outside of routes <App />
 - <PopUpBox /> in <HomePage /> why/how does it work?
 - Is there a more efficient way to cancel the <PopUpBox />?
 - sql database storage with netly and heroku
-- create file with commandline (echo > name not able to save)
 
 ----------------------------------------------------------------------------------------
 Here are the requirements made by the steering committee:                               |
