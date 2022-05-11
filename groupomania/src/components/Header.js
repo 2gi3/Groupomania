@@ -25,6 +25,7 @@ function Header (){
 		sessionStorage.removeItem('UserId');
 		sessionStorage.removeItem('UserName');
 	    sessionStorage.removeItem('UserEmail');
+        sessionStorage.removeItem('history');
 		window.location="/";
 	}
 	

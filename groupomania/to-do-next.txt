@@ -1,16 +1,12 @@
 To do:
--many to many table (post views, post id in one col, and user id in another)
--wcag
-Use trello to setup cards for the 10 requirements from slide 6
-Include instructions for running code in Readme.
-
-Remove the node_modules(to double check/ delete from github)
+fix logo in navbar
+update user-post without button (automatically)
 
 
 
 
-QUESTIONS:
-- typeScript
+
+QUESTIONS: 
 - <PopUpBox /> in <HomePage /> why/how does it work?
 - Is there a more efficient way to cancel the <PopUpBox />?
 - sql database storage with netly and heroku

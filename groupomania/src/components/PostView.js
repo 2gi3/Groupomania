@@ -16,22 +16,7 @@ function PostView() {
 	let alreadyRead = [];
 	let postId ;
 
-	const updateHistory=()=>{
-		let userPost ={
-			"userId":UserId,
-			"postId":JSON.stringify(postData.id	)
-		}
-		let userPostString = JSON.stringify(userPost)
-		console.log(userPostString)
-		fetch(`http://localhost:3000/api/user-posts/`,{
-			method: 'post',
-			headers: {'content-type': 'application/json'},
-			body: userPostString
-		}
-		)
-	}
-
-	useEffect(() => {
+	const  loadProductInfo=()=>{
 		axios.get(`http://localhost:3000/api/posts/${params.id}`,
 			{   headers: {
 					'Authorization': `token ${access_token}`
@@ -45,7 +30,7 @@ function PostView() {
 					alreadyRead.push(postId);
 					sessionStorage.setItem("history", JSON.stringify(alreadyRead))
 				} else {
-					alreadyRead = JSON.parse(sessionStorage.getItem("history"));
+					alreadyRead.push(sessionStorage.getItem("history"))
 					alreadyRead.push(postId);
 					sessionStorage.setItem("history", JSON.stringify(alreadyRead));
 				}
@@ -61,6 +46,28 @@ function PostView() {
 			).catch(err => {
 				console.log(err)
 			})
+	}
+	
+	const updateHistory=()=>{
+		let userPost ={
+			"userId":UserId,
+			"postId":JSON.stringify(postData.id	)
+		}
+		let userPostString = JSON.stringify(userPost)
+		console.log(userPostString)
+		fetch(`http://localhost:3000/api/user-posts/`,{
+			method: 'post',
+			headers: {'content-type': 'application/json'},
+			body: userPostString
+		}
+		)
+	}
+   
+	useEffect(() => {
+		loadProductInfo()
+		// setTimeout(updateHistory(), 1000)
+		// updateHistory()
+		
 	}, [])
   
 

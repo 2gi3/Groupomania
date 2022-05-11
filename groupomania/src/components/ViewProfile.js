@@ -7,25 +7,33 @@ function ViewProfile() {
 	let userName = sessionStorage.getItem('UserName');
 	let userEmail = sessionStorage.getItem('UserEmail');
 
-
+    const access_token = sessionStorage.getItem('token');
 	let UserId = sessionStorage.getItem('UserId')
-	const [history, setHistory] = useState([])
-	useEffect(() => {
+	const [newHistory, setNewHistory] = useState([])
+	const loadHistory =()=>{
 		axios.get(`http://localhost:3000/api/user-posts/${UserId}`,
-			// {   headers: {
-			//         'Authorization': `token ${access_token}`
-			//     }
-			// }
+			{   headers: {
+			        'Authorization': `token ${access_token}`
+			    }
+			}
 		)
 			.then(res => {
-				setHistory(res.data.map(a => a.postId))
+				setNewHistory(res.data.map(a => a.postId))
 			}
-			).catch(err => {
+			)
+			// .then(
+	        //     sessionStorage.setItem("history", newHistory)
+			// )			
+			.catch(err => {
 				console.log(err)
 			})
+	}
+	useEffect(() => {
+		loadHistory()
+		
 	}, [])
-	console.log(history)
-	sessionStorage.setItem("history", history)
+	console.log(newHistory)
+	sessionStorage.setItem("history", newHistory)
 
 
 
