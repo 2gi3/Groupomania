@@ -64,29 +64,9 @@ function PostView() {
 	}
    
 	useEffect(() => {
-		loadProductInfo()
-		// setTimeout(updateHistory(), 1000)
-		// updateHistory()
-		
+		loadProductInfo()		
 	}, [])
   
-
-	
-	// let formData = new FormData
-	// 	formData.append(
-	// 		'userId',UserId
-	// 	)
-	// 	formData.append(
-	// 		'postId',postData.id
-	// 	)
-	// 	console.log(formData)
-	// axios.post(`http://localhost:3000/api/user-posts/`, userPostString,
-	// {
-	// 	headers: {
-	// 	  'Authorization': `Basic ${access_token}`
-	// 	}
-	//   }
-
 	if (!sessionStorage.getItem('token'))
 	 { return <Navigate to={"/signin"} />;}
 
@@ -111,7 +91,7 @@ function PostView() {
 								<img src={postData.imageUrl} max-width='300' alt="" />
 							</div>
 						</div>
-						<button className='p-2 col-4'>delete </button>
+						{/* <button className='p-2 col-4'>delete </button> */}
 						<button className='p-2 col-4' onClick={updateHistory}>Mark as read </button>
 					</div>
 				</div>

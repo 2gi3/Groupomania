@@ -20,10 +20,7 @@ function ViewProfile() {
 			.then(res => {
 				setNewHistory(res.data.map(a => a.postId))
 			}
-			)
-			// .then(
-	        //     sessionStorage.setItem("history", newHistory)
-			// )			
+			)			
 			.catch(err => {
 				console.log(err)
 			})
@@ -35,23 +32,27 @@ function ViewProfile() {
 	console.log(newHistory)
 	sessionStorage.setItem("history", newHistory)
 
-
-
-
-
-	const deleteUser = () => {
-		const userId = sessionStorage.getItem('UserId');
+	const deleteUser=()=>{
+		const userId = sessionStorage.getItem('UserId'); 
 		axios.delete(`http://localhost:3000/api/auth/${userId}`, {
 			headers: {
-				//   Authorization: authorizationToken
+				'Authorization': `token ${access_token}`
 			},
-		});
-		sessionStorage.removeItem('token');
+			data: {            
+				// UserName : userName,
+                // UserEmail:email,
+                // password:password,         
+			}
+		  });
+		  sessionStorage.removeItem('token');
 		sessionStorage.removeItem('UserId');
 		sessionStorage.removeItem('UserName');
-		sessionStorage.removeItem('UserEmail');
-		window.location = "/";
+	    sessionStorage.removeItem('UserEmail');
+        sessionStorage.removeItem('history');
+		window.location="/";
 	}
+
+	
 	if (!sessionStorage.getItem('token')) {
 
 		return <Navigate to={"/signin"} />;
