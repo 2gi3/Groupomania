@@ -61,6 +61,7 @@ function PostView() {
 			body: userPostString
 		}
 		)
+		window.location="/";
 	}
    
 	useEffect(() => {
