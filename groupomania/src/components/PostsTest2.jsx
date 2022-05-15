@@ -17,6 +17,8 @@ function PostsTest2() {
     let alreadyRead = [];
     let postId;
 
+    
+
     useEffect(() => {
         axios.get("http://localhost:3000/api/posts",
             {   headers: {
